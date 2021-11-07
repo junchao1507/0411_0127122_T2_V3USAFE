@@ -35,8 +35,8 @@ public class ProfileActivity extends AppCompatActivity {
     private DatabaseReference dbRef;
     private StorageReference imgRef;
     private TextView tvName, tvEmail, tvCovid, tvVaccine, tvCovidTitle, tvVaccineTitle;
-    private ImageButton editProfile;
-    private Button updateCovidStatus, updateVaccineStatus, close;
+    private ImageButton back, editProfile;
+    private Button updateCovidStatus, updateVaccineStatus, logout;
     private CircleImageView profilePic;
     private CardView crdCovid, crdVaccine;
 
@@ -55,11 +55,12 @@ public class ProfileActivity extends AppCompatActivity {
         tvVaccineTitle = (TextView)findViewById(R.id.text_status_vaccination);
         profilePic = (CircleImageView)findViewById(R.id.circle_profile_pic);
         editProfile = (ImageButton)findViewById(R.id.btn_edit_profile);
+        back = (ImageButton) findViewById(R.id.btn_back);
         updateCovidStatus = (Button)findViewById(R.id.btn_update_covid);
         updateVaccineStatus = (Button)findViewById(R.id.btn_update_vacc);
         crdCovid = (CardView)findViewById(R.id.crd_covid_risk);
         crdVaccine = (CardView)findViewById(R.id.crd_vaccination);
-        close = (Button) findViewById(R.id.btn_close_profile);
+        logout = (Button) findViewById(R.id.btn_logout);
 
         // Retrieving data from firebase real-time db.
         dbRef = FirebaseDatabase.getInstance("https://usafe---0127122-a31c2-default-rtdb.asia-southeast1.firebasedatabase.app").getReference().child("User");
@@ -161,13 +162,24 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
 
-        close.setOnClickListener(new View.OnClickListener() {
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Context context = ProfileActivity.this;
                 Intent intent = new Intent(context, MainActivity.class);
                 intent.putExtra("userObject", user);
                 startActivity(intent);
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Context context = ProfileActivity.this;
+                Intent intent = new Intent(context, CoverActivity.class);
+                intent.putExtra("userObject", user);
+                startActivity(intent);
+                finish();
             }
         });
     }

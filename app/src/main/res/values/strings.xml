@@ -18,6 +18,7 @@
     <string name="vaccination_status">VACCINATION STATUS </string>
     <string name="btn_vacc_update">Update</string>
     <string name="btn_covidRisk_update">Update</string>
+    <string name="btn_logout">Logout</string>
 
     <!--U-SAFE Page Strings-->
     <string name="menu_grid">Menu Grid</string>
