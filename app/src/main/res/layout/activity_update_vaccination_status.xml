@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:layout_gravity="center_vertical"
+        android:background="#b2eefc">
+
+        <ImageButton
+            android:id="@+id/btn_back_vaccination_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="8dp"
+            android:background="#b2eefc"
+            android:src="@drawable/ic_baseline_arrow_back"
+            app:tint="@color/black"/>
+
+        <TextView
+            android:id="@+id/vaccination_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="89dp"
+            android:text="@string/vaccination_status"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="900dp"
+        android:layout_marginTop="-110dp"
+        android:layout_marginBottom="-300dp"
+        android:layout_marginStart="-20dp"
+        android:layout_marginEnd="-20dp"
+        android:src="@drawable/background2"
+        />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/vaccination_status_q1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/have_you_received_your_Covid19_vaccination"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <RadioGroup
+                        android:id="@+id/vaccination_status_q1_radio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/secondDoseRadioButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="34dp"
+                            android:layout_centerHorizontal="true"
+                            android:checked="false"
+                            android:padding="5dp"
+                            android:text="@string/radio_btn_received_second_dose"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <RadioButton
+                            android:id="@+id/firstDoseRadioButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="34dp"
+                            android:layout_centerHorizontal="true"
+                            android:checked="false"
+                            android:padding="5dp"
+                            android:text="@string/radio_btn_received_first_dose"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <RadioButton
+                            android:id="@+id/notYetRadioButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="34dp"
+                            android:layout_centerHorizontal="true"
+                            android:checked="false"
+                            android:padding="5dp"
+                            android:text="@string/radio_btn_not_yet"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+                    </RadioGroup>
+
+                    <Button
+                        android:id="@+id/btn_next_vaccination_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/btn_vaccinationStatus_next"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textAllCaps="false"
+                        android:textStyle="bold"
+                        android:backgroundTint="#4A4949"
+                        android:visibility="visible"/>
+                </LinearLayout>
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginStart="15dp"-->
+<!--                    android:layout_marginEnd="15dp"-->
+<!--                    android:layout_marginTop="15dp"-->
+<!--                    android:layout_marginBottom="15dp"-->
+<!--                    android:orientation="vertical">-->
+<!--    -->
+<!--                    <TextView-->
+<!--                        android:id="@+id/vaccination_status_q2"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginBottom="10dp"-->
+<!--                        android:text="@string/which_vaccine_did_you_receive"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="15sp"-->
+<!--                        android:textStyle="bold" />-->
+<!--    -->
+<!--                    <RadioGroup-->
+<!--                        android:id="@+id/vaccination_status_q2_radio"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content">-->
+<!--    -->
+<!--                        <RadioButton-->
+<!--                            android:id="@+id/pfizerRadioButton"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="34dp"-->
+<!--                            android:layout_centerHorizontal="true"-->
+<!--                            android:checked="false"-->
+<!--                            android:padding="5dp"-->
+<!--                            android:text="@string/radio_btn_pfizer_astraZaneca_sinovac"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="15sp"-->
+<!--                            android:textStyle="bold" />-->
+<!--    -->
+<!--                        <RadioButton-->
+<!--                            android:id="@+id/johnsonRadioButton"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="34dp"-->
+<!--                            android:layout_centerHorizontal="true"-->
+<!--                            android:checked="false"-->
+<!--                            android:padding="5dp"-->
+<!--                            android:text="@string/radio_btn_johnson_johnson_cansino"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="15sp"-->
+<!--                            android:textStyle="bold" />-->
+<!--    -->
+<!--                        <RadioButton-->
+<!--                            android:id="@+id/notYetReceiveVacciRadioButton"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="34dp"-->
+<!--                            android:layout_centerHorizontal="true"-->
+<!--                            android:checked="false"-->
+<!--                            android:padding="5dp"-->
+<!--                            android:text="@string/radio_btn_not_yet_receive_any_vaccination"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="15sp"-->
+<!--                            android:textStyle="bold" />-->
+<!--    -->
+<!--                    </RadioGroup>-->
+<!--    -->
+<!--                </LinearLayout>-->
+<!--    -->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginStart="15dp"-->
+<!--                    android:layout_marginEnd="15dp"-->
+<!--                    android:layout_marginTop="15dp"-->
+<!--                    android:layout_marginBottom="15dp"-->
+<!--                    android:orientation="vertical">-->
+<!--    -->
+<!--                    <TextView-->
+<!--                        android:id="@+id/vaccination_status_q3"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="@string/when_did_you_receive_your_second_dose"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="15sp"-->
+<!--                        android:textStyle="bold" />-->
+<!--    -->
+<!--                    &lt;!&ndash;                <Button&ndash;&gt;-->
+<!--                    &lt;!&ndash;                    android:id="@+id/btn_secondDoseDatePicker"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                    style="?android:spinnerStyle"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                    android:layout_width="144dp"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                    android:layout_marginLeft="43dp"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                    android:backgroundTint="#000000"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                    android:text="OCT 27 2021"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                    android:textColor="@color/white"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                    android:textSize="15sp"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                    android:textStyle="bold"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                    android:onClick="openDatePicker"/>&ndash;&gt;-->
+<!--    -->
+<!--                    <com.google.android.material.textfield.TextInputLayout-->
+<!--                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"-->
+<!--                        android:id="@+id/tv_vaccineDatePicker"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="20dp"-->
+<!--                        android:layout_marginEnd="20dp"-->
+<!--                        android:layout_marginTop="20dp"-->
+<!--                        android:layout_marginBottom="20dp"-->
+<!--                        android:textSize="24sp"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:hint="@string/prompt_select_date"-->
+<!--                        >-->
+<!--    -->
+<!--                        <com.google.android.material.textfield.TextInputEditText-->
+<!--                            android:id="@+id/edt_vaccineDatePicker"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content" />-->
+<!--    -->
+<!--                    </com.google.android.material.textfield.TextInputLayout>-->
+<!--    -->
+<!--    -->
+<!--                    <TextView-->
+<!--                        android:id="@+id/messageSecondDose_q2"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="4dp"-->
+<!--                        android:layout_marginLeft="23dp"-->
+<!--                        android:text="@string/display_only_when_user_received_second_dose"-->
+<!--                        android:textColor="#E10D0D"-->
+<!--                        android:textSize="12sp"-->
+<!--                        android:textStyle="bold"-->
+<!--                        />-->
+<!--    -->
+<!--                </LinearLayout>-->
+
+                <TextView
+                    android:id="@+id/vaccination_status_q4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:text="@string/Upload_a_photo_of_your_covid19_vaccination_digital_certificate"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:visibility="invisible"/>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/crd_upload"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="#838282"
+                    android:visibility="invisible"
+                    app:strokeWidth="5dp"
+                    app:cardCornerRadius="30dp"
+                    app:strokeColor="#989898">
+
+                    <ImageButton
+                        android:id="@+id/btn_upload_image"
+                        android:layout_width="300dp"
+                        android:layout_height="400dp"
+                        android:gravity="center_horizontal"
+                        android:src="@drawable/ic_baseline_publish_24" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <Button
+                    android:id="@+id/btn_submit_vaccination_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/btn_vaccinationStatus_submit"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:textAllCaps="false"
+                    android:textStyle="bold"
+                    android:backgroundTint="#4A4949"
+                    android:visibility="invisible"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+    </FrameLayout>
+
+</LinearLayout>

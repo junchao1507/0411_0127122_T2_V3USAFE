@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFD1C1"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    >
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      >
+
+    <TextView
+        android:id="@+id/tv_AppName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:textSize="48sp"
+        android:textColor="@color/black"
+        android:text = "@string/app_name"
+        />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/circle_prof_pic"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/image_profile" />
+  </LinearLayout>
+
+  <View
+      android:id="@+id/line"
+      android:layout_width="match_parent"
+      android:layout_height="2dp"
+      android:background="@android:color/darker_gray"/>
+
+
+  <GridView
+      android:id="@+id/gv_menu"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="10dp"
+      android:layout_marginEnd="10dp"
+      android:layout_marginTop="30dp"
+      android:horizontalSpacing="15dp"
+      android:verticalSpacing="15dp"
+      android:numColumns="2"
+      />
+</LinearLayout>

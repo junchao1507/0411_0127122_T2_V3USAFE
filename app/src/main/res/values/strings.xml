@@ -1,0 +1,97 @@
+<resources>
+    <!--Common Strings-->
+    <string name="app_name">U-SAFE</string>
+    <string name="covid_risk_status">COVID RISK STATUS </string>
+    <string name="btn_close">Close</string>
+
+    <!--Cover, SignUp & Login Pages Strings-->
+    <string name="slogan">Monitors your safety</string>
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="welcome_on_board">Welcome On Board!</string>
+    <string name="enter_student_id">Enter Student Id</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="login">Login</string>
+    <string name="signup">SignUp</string>
+
+    <!--Profile Page Strings-->
+    <string name="vaccination_status">VACCINATION STATUS </string>
+    <string name="btn_vacc_update">Update</string>
+    <string name="btn_covidRisk_update">Update</string>
+
+    <!--U-SAFE Page Strings-->
+    <string name="menu_grid">Menu Grid</string>
+    <!--    <string name="update_risk_status">Update Risk Status</string>-->
+    <string name="book_a_slot">Book a Slot</string>
+    <string name="learn_about_covid_19">Learn about Covid-19</string>
+    <string name="test_your_knowledge">Test your Knowledge</string>
+    <string name="report_a_concern">Report a Concern</string>
+    <string name="view_history">View History</string>
+    <string name="profile_icon">Profile Icon</string>
+
+    <!--Edit Profile Page Strings-->
+    <string name="profile_edit">Edit Profile</string>
+    <string name="btn_profilePic_change"><u>Change Profile Picture</u></string>
+    <string name="email">Email: </string>
+    <string name="username">Username: </string>
+    <string name="btn_username_change"><u>Change Username</u></string>
+    <string name="password">Password: </string>
+    <string name="btn_password_change"><u>Change Password</u></string>
+    <string name="btn_update">Update</string>
+    <string name="btn_delete_account">Delete Account</string>
+
+    <!--Covid Status Page Strings-->
+    <string name="select_1all_symptoms_that_you_are_exhibiting">1. Select all symptoms that you are exhibiting.</string>
+    <string name="fever">Fever</string>
+    <string name="chills">Chills</string>
+    <string name="shivering">Shivering(rigor)</string>
+    <string name="body_ache">Body Ache</string>
+    <string name="headache">Headache</string>
+    <string name="sore_throat">Sore throat</string>
+    <string name="nausea">Nausea</string>
+    <string name="diarrhea">Diarrhea</string>
+    <string name="fatigue">Fatigue</string>
+    <string name="runny_nose">Runny nose or nasal congestion</string>
+    <string name="select_2all_symptoms_that_you_are_exhibiting">2. Select all symptoms that you are exhibiting.</string>
+    <string name="cough">Cough</string>
+    <string name="breathing">Breathing difficulty</string>
+    <string name="loss_of_smell">Loss of smell</string>
+    <string name="loss_of_taste">Loss of taste</string>
+    <string name="have_you_attended_any_events_areas_associated_with_known_covid19_cluster">3. Have you attended any events/areas associated with known COVID-19 cluster?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="none">None</string>
+    <string name="have_you_travelled_to_any_country_outside_Malaysia_within_14_days_before_onset_of_symptoms">4. Have you travelled to any country outside Malaysia within 14 days before onset of symptoms?</string>
+    <string name="have_you_had_close_contact_to_confirm_or_suspected_case_of_COVID19_within_14_days_before_onset_of_illness">5. Have you had close contact to confirm or suspected case of COVID-19 within 14 days before onset of illness?</string>
+    <string name="btn_covidStatus_submit">Submit</string>
+
+    <!--Vaccination Status Page Strings-->
+    <string name="have_you_received_your_Covid19_vaccination">1. Have you received your covid-19 vaccination?</string>
+    <string name="radio_btn_received_second_dose">Received Second Dose</string>
+    <string name="radio_btn_received_first_dose">Received First Dose</string>
+    <string name="radio_btn_not_yet">Not yet</string>
+    <string name="which_vaccine_did_you_receive">2. Which vaccine did you receive?</string>
+    <string name="radio_btn_pfizer_astraZaneca_sinovac">Pfizer / AstraZaneca / Sinovac</string>
+    <string name="radio_btn_johnson_johnson_cansino">Johnson &#38; Johnson / Cansino</string>
+    <string name="radio_btn_not_yet_receive_any_vaccination">Not yet receive any vaccination</string>
+    <string name="when_did_you_receive_your_second_dose">3. When did you receive your second dose?</string>
+    <string name="select_date">Select Date</string>
+    <string name="display_only_when_user_received_second_dose">Display only when user received second dose</string>
+    <string name="Upload_a_photo_of_your_covid19_vaccination_digital_certificate">2. Upload a Photo of your COVID-19 Vaccination Digital Certificate.</string>
+    <string name="btn_vaccinationStatus_submit">Submit</string>
+    <string name="btn_vaccinationStatus_next">Next</string>
+
+    <!--Booking Page Strings-->
+    <string name="prompt_select_date">Select a Date</string>
+    <string name="prompt_select_time">Select a Time</string>
+    <string name="prompt_select_lecture_theatre">Select a Lecture Theatre</string>
+    <string name="title_information">Information:</string>
+    <string name="prompt_select_seat">Select an available seat.</string>
+    <string name="btn_next">Next</string>
+    <string name="btn_book">Book</string>
+
+    <!--History Page Auto-generated Strings-->
+    <string name="title_activity_history">History</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+</resources>

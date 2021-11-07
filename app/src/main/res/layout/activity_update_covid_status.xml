@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="900dp"
+            android:layout_marginTop="-110dp"
+            android:layout_marginBottom="-300dp"
+            android:layout_marginStart="-20dp"
+            android:layout_marginEnd="-20dp"
+            android:src="@drawable/background2"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                android:layout_gravity="center_vertical"
+                android:background="#b2eefc">
+
+                <ImageButton
+                    android:id="@+id/btn_back_edit_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="8dp"
+                    android:background="#b2eefc"
+                    android:src="@drawable/ic_baseline_arrow_back"
+                    app:tint="@color/black"/>
+
+                <TextView
+                    android:id="@+id/edit_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="89dp"
+                    android:text="@string/covid_risk_status"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/covid_status_q1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="@string/select_1all_symptoms_that_you_are_exhibiting"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            />
+
+                        <RadioGroup
+                            android:id="@+id/radio_q1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <RadioButton
+                                android:id="@+id/rbtn_q1None"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/none"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                android:textStyle="bold"/>
+                        </RadioGroup>
+
+                        <CheckBox
+                            android:id="@+id/cb1q1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="34dp"
+                            android:layout_centerHorizontal="true"
+                            android:checked="false"
+                            android:padding="5dp"
+                            android:text="@string/fever"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <CheckBox
+                            android:id="@+id/cb2q1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="34dp"
+                            android:layout_centerHorizontal="true"
+                            android:checked="false"
+                            android:padding="5dp"
+                            android:text="@string/chills"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            />
+
+                        <CheckBox
+                            android:id="@+id/cb3q1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="34dp"
+                            android:layout_centerHorizontal="true"
+                            android:checked="false"
+                            android:padding="5dp"
+                            android:text="@string/shivering"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            />
+
+                        <CheckBox
+                            android:id="@+id/cb4q1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="34dp"
+                            android:layout_centerHorizontal="true"
+                            android:checked="false"
+                            android:padding="5dp"
+                            android:text="@string/body_ache"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            />
+
+                        <CheckBox
+                            android:id="@+id/cb5q1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="34dp"
+                            android:layout_centerHorizontal="true"
+                            android:checked="false"
+                            android:padding="5dp"
+                            android:text="@string/headache"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            />
+
+                        <CheckBox
+                            android:id="@+id/cb6q1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="34dp"
+                            android:layout_centerHorizontal="true"
+                            android:checked="false"
+                            android:padding="5dp"
+                            android:text="@string/sore_throat"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            />
+
+                        <CheckBox
+                            android:id="@+id/cb7q1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="34dp"
+                            android:layout_centerHorizontal="true"
+                            android:checked="false"
+                            android:padding="5dp"
+                            android:text="@string/nausea"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            />
+
+                        <CheckBox
+                            android:id="@+id/cb8q1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="34dp"
+                            android:layout_centerHorizontal="true"
+                            android:checked="false"
+                            android:padding="5dp"
+                            android:text="@string/diarrhea"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            />
+
+                        <CheckBox
+                            android:id="@+id/cb9q1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="34dp"
+                            android:layout_centerHorizontal="true"
+                            android:checked="false"
+                            android:padding="5dp"
+                            android:text="@string/fatigue"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            />
+
+                        <CheckBox
+                            android:id="@+id/cb10q1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="34dp"
+                            android:layout_centerHorizontal="true"
+                            android:checked="false"
+                            android:padding="5dp"
+                            android:text="@string/runny_nose"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            />
+
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/covid_status_q2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="@string/select_2all_symptoms_that_you_are_exhibiting"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            />
+
+                        <RadioGroup
+                            android:id="@+id/radio_q2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <RadioButton
+                                android:id="@+id/rbtn_q2None"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/none"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                android:textStyle="bold"/>
+                        </RadioGroup>
+
+                        <CheckBox
+                            android:id="@+id/cb1q2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="34dp"
+                            android:layout_centerHorizontal="true"
+                            android:checked="false"
+                            android:padding="5dp"
+                            android:text="@string/cough"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            />
+
+                        <CheckBox
+                            android:id="@+id/cb2q2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="34dp"
+                            android:layout_centerHorizontal="true"
+                            android:checked="false"
+                            android:padding="5dp"
+                            android:text="@string/breathing"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            />
+
+                        <CheckBox
+                            android:id="@+id/cb3q2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="34dp"
+                            android:layout_centerHorizontal="true"
+                            android:checked="false"
+                            android:padding="5dp"
+                            android:text="@string/loss_of_smell"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            />
+
+                        <CheckBox
+                            android:id="@+id/cb4q2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="34dp"
+                            android:layout_centerHorizontal="true"
+                            android:checked="false"
+                            android:padding="5dp"
+                            android:text="@string/loss_of_taste"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/covid_status_q3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="@string/have_you_attended_any_events_areas_associated_with_known_covid19_cluster"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            />
+
+
+                        <RadioGroup
+                            android:id="@+id/radio_q3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <RadioButton
+                                android:id="@+id/rbtn_q3Yes"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/yes"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                android:textStyle="bold"/>
+                            <RadioButton
+                                android:id="@+id/rbtn_q3No"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/no"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                android:textStyle="bold"/>
+                        </RadioGroup>
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/covid_status_q4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="@string/have_you_travelled_to_any_country_outside_Malaysia_within_14_days_before_onset_of_symptoms"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            />
+
+                        <RadioGroup
+                            android:id="@+id/radio_q4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <RadioButton
+                                android:id="@+id/rbtn_q4Yes"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/yes"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                android:textStyle="bold"/>
+                            <RadioButton
+                                android:id="@+id/rbtn_q4No"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/no"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                android:textStyle="bold"/>
+                        </RadioGroup>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/covid_status_q5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="@string/have_you_had_close_contact_to_confirm_or_suspected_case_of_COVID19_within_14_days_before_onset_of_illness"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            />
+
+                        <RadioGroup
+                            android:id="@+id/radio_q5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <RadioButton
+                                android:id="@+id/rbtn_q5Yes"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/yes"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                android:textStyle="bold"/>
+                            <RadioButton
+                                android:id="@+id/rbtn_q5No"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/no"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                android:textStyle="bold"/>
+                        </RadioGroup>
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btn_submit_covid_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/btn_covidStatus_submit"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textAllCaps="false"
+                        android:textStyle="bold"
+                        android:backgroundTint="#4A4949" />
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>
