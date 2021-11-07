@@ -3,7 +3,9 @@ package com.example.a0411_0127122_t2_v3usafe;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -84,9 +86,16 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case 1:
-                        intent =  new Intent(context, BookingActivity.class);
-                        intent.putExtra("userObject", user);
-                        startActivity(intent);
+                        if(user.getCovidRisk() == "LOW RISK" && user.getVacStatus() == "COMPLETED") {
+                            intent = new Intent(context, BookingActivity.class);
+                            intent.putExtra("userObject", user);
+                            startActivity(intent);
+                        }else{
+                            new AlertDialog.Builder(MainActivity.this)
+                                    .setTitle("ACCESS DENIED")
+                                    .setMessage("You do not have access to this page unless you are a low risk individual and have completed TWO(2) doses of vaccination.")
+                                    .setNegativeButton("Close", null).show();
+                        }
                         break;
 
                     case 2:
