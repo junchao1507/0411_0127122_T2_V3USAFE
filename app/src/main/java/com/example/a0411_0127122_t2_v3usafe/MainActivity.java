@@ -86,15 +86,22 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case 1:
-                        if(user.getCovidRisk() == "LOW RISK" && user.getVacStatus() == "COMPLETED") {
+                        if(user.getCovidRisk().equals("LOW RISK") && user.getVacStatus().equals("COMPLETED")) {
                             intent = new Intent(context, BookingActivity.class);
                             intent.putExtra("userObject", user);
                             startActivity(intent);
                         }else{
                             new AlertDialog.Builder(MainActivity.this)
                                     .setTitle("ACCESS DENIED")
-                                    .setMessage("You do not have access to this page unless you are a low risk individual and have completed TWO(2) doses of vaccination.")
-                                    .setNegativeButton("Close", null).show();
+                                    .setMessage("You do not have access to this page unless you are a low risk individual and have completed TWO(2) doses of vaccination. Update your Info Now!")
+                                    .setPositiveButton("Update", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            Intent intent =  new Intent(context, ProfileActivity.class);
+                                            intent.putExtra("userObject", user);
+                                            startActivity(intent);
+                                        }
+                                    }).setNegativeButton("Close", null).show();
                         }
                         break;
 

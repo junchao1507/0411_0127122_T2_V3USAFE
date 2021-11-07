@@ -86,7 +86,7 @@ public class ProfileActivity extends AppCompatActivity {
                     tvCovidTitle.setTextColor(Color.parseColor("#008000"));
                     tvCovid.setTextColor(Color.parseColor("#008000"));
                     crdCovid.setCardBackgroundColor(ContextCompat.getColor(ProfileActivity.this, R.color.light_green));
-                    updateCovidStatus.setText("Good job! You're at a lower risk.");
+                    updateCovidStatus.setText("You're safe!");
                     updateCovidStatus.setTextSize(16);
                     updateCovidStatus.setTextColor(Color.parseColor("#008000"));
                     updateCovidStatus.setBackgroundColor(Color.parseColor("#90EE90"));
@@ -103,7 +103,7 @@ public class ProfileActivity extends AppCompatActivity {
                     tvVaccineTitle.setTextColor(Color.parseColor("#008000"));
                     tvVaccine.setTextColor(Color.parseColor("#008000"));
                     crdVaccine.setCardBackgroundColor(ContextCompat.getColor(ProfileActivity.this, R.color.light_green));
-                    updateVaccineStatus.setText("You're safe! Welcome back.");
+                    updateVaccineStatus.setText("Good job!");
                     updateVaccineStatus.setTextSize(16);
                     updateVaccineStatus.setTextColor(Color.parseColor("#008000"));
                     updateVaccineStatus.setBackgroundColor(Color.parseColor("#90EE90"));
