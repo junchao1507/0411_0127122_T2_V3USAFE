@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,6 +29,7 @@ public class UpdateCovidStatusActivity extends AppCompatActivity {
     private CheckBox[] cbQ2 = new CheckBox[4];
     private RadioButton q1n, q2n, q3n, q4n, q5n, q3y,q4y, q5y;
     private Button btnSubmit;
+    private ImageButton btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +61,16 @@ public class UpdateCovidStatusActivity extends AppCompatActivity {
         q4y = (RadioButton)findViewById(R.id.rbtn_q4Yes);
         q5y = (RadioButton)findViewById(R.id.rbtn_q5Yes);
         btnSubmit = (Button)findViewById(R.id.btn_submit_covid_status);
+        btnBack = (ImageButton)findViewById(R.id.btn_back_covid_status);
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UpdateCovidStatusActivity.this, MainActivity.class);
+                intent.putExtra("userObject", user);
+                startActivity(intent);
+            }
+        });
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override

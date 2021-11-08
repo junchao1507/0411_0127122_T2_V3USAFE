@@ -84,10 +84,6 @@ public class SignUpActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
                                 Toast.makeText(SignUpActivity.this, "Account Registration Successful!", Toast.LENGTH_SHORT).show();
-
-                                Log.d("ADebugTag", "Email: " + email);
-                                Log.d("ADebugTag", "Password: " + password);
-
                                 Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
                                 startActivity(intent);
                                 finish();

@@ -31,14 +31,14 @@
                 android:background="#b2eefc">
 
                 <ImageButton
-                    android:id="@+id/btn_back_edit_profile"
+                    android:id="@+id/btn_back_covid_status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:layout_marginTop="8dp"
                     android:background="#b2eefc"
                     android:src="@drawable/ic_baseline_arrow_back"
-                    app:tint="@color/black"/>
+                    app:tint="@color/black" />
 
                 <TextView
                     android:id="@+id/edit_profile"
