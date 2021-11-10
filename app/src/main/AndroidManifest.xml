@@ -21,6 +21,9 @@
             android:name=".ReportActivity"
             android:exported="true" />
         <activity
+            android:name=".QuizCoverActivity"
+            android:exported="true" />
+        <activity
             android:name=".QuizActivity"
             android:exported="true" />
         <activity

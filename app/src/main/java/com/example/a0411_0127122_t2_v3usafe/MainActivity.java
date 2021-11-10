@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case 3:
-                        intent =  new Intent(context, QuizActivity.class);
+                        intent =  new Intent(context, QuizCoverActivity.class);
                         intent.putExtra("userObject", user);
                         startActivity(intent);
                         break;
