@@ -23,14 +23,16 @@ public class User implements Serializable {
     private String password;
     private String vacStatus;
     private String covidRisk;
+    private String covidRiskUpdateTime;
 
-    public User(String userId, String email, String userName, String password, String vacStatus, String covidRisk) {
+    public User(String userId, String email, String userName, String password, String vacStatus, String covidRisk, String covidRiskUpdateTime) {
         this.userId = userId;
         this.email = email;
         this.userName = userName;
         this.password = password;
         this.vacStatus = vacStatus;
         this.covidRisk = covidRisk;
+        this.covidRiskUpdateTime = covidRiskUpdateTime;
     }
 
     public String getUserId() {
@@ -81,14 +83,21 @@ public class User implements Serializable {
         this.covidRisk = covidRisk;
     }
 
+    public static void setUserList(ArrayList<User> userList) {
+        User.userList = userList;
+    }
+
+    public String getCovidRiskUpdateTime() {
+        return covidRiskUpdateTime;
+    }
+
+    public void setCovidRiskUpdateTime(String covidRiskUpdateTime) {
+        this.covidRiskUpdateTime = covidRiskUpdateTime;
+    }
+
     //Load account(s)
     public static ArrayList<User> getUserList() {
         return userList;
     }
 
-    //Login Account
-
-    //Update account
-
-    //Delete Account
 }

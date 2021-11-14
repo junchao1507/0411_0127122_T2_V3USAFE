@@ -1,13 +1,14 @@
 package com.example.a0411_0127122_t2_v3usafe;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Lesson {
-    private static ArrayList<Lesson> lessonList = new ArrayList<>();
-
     private int lessonId;
-    private int week;
+    private String week;
     private String location;
+    private String capacity;
+    private ArrayList<String> seatNo;
     private String day;
     private String date;
     private String startTime;
@@ -15,19 +16,27 @@ public class Lesson {
     private String moduleName;
     private String mode;
     private String lecturer;
+    private boolean active;
 
-    public Lesson(int lessonId, int week, String location, String day, String date, String startTime, String endTime, String moduleName, String mode, String lecturer) {
-        this.lessonId = lessonId;
-        this.week = week;
-        this.location = location;
-        this.day = day;
-        this.date = date;
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.moduleName = moduleName;
-        this.mode = mode;
-        this.lecturer = lecturer;
+    public Lesson(){
+
     }
+
+//    public Lesson(int lessonId, String week, String location, String capacity, ArrayList<String> seatNo, String day, String date, String startTime, String endTime, String moduleName, String mode, String lecturer, boolean active) {
+//        this.lessonId = lessonId;
+//        this.week = week;
+//        this.location = location;
+//        this.capacity = capacity;
+//        this.seatNo = seatNo;
+//        this.day = day;
+//        this.date = date;
+//        this.startTime = startTime;
+//        this.endTime = endTime;
+//        this.moduleName = moduleName;
+//        this.mode = mode;
+//        this.lecturer = lecturer;
+//        this.active = active;
+//    }
 
     public int getLessonId() {
         return lessonId;
@@ -37,11 +46,11 @@ public class Lesson {
         this.lessonId = lessonId;
     }
 
-    public int getWeek() {
+    public String getWeek() {
         return week;
     }
 
-    public void setWeek(int week) {
+    public void setWeek(String week) {
         this.week = week;
     }
 
@@ -109,58 +118,28 @@ public class Lesson {
         this.lecturer = lecturer;
     }
 
-    public static void initLessons(){
-        lessonList.add(new Lesson(
-                1,
-                11,
-                "GF-LRT-01",
-                "Wednesday",
-                "24-11-2021",
-                "12:00 P.M.",
-                "02:00 P.M.",
-                "XBMC3024 Mobile Programming & Screen Design 2",
-                "Tutorial 1",
-                "Dr. Law Foong Li"));
-
-        lessonList.add(new Lesson(
-                2,
-                11,
-                "GF-LRT-01",
-                "Wednesday",
-                "24-11-2021",
-                "02:00 P.M.",
-                "04:00 P.M.",
-                "XBMC3024 Mobile Programming & Screen Design 2",
-                "Tutorial 2",
-                "Dr. Law Foong Li"));
-
-        lessonList.add(new Lesson(
-                3,
-                11,
-                "GF-LRT-02",
-                "Wednesday",
-                "24-11-2021",
-                "04:00 P.M.",
-                "06:00 P.M.",
-                "XBDS3024 Natural Language Processing",
-                "Lecture",
-                "Mr. Phua Yeong Tsann"));
-
-
-        lessonList.add(new Lesson(
-                4,
-                11,
-                "GF-LRT-01",
-                "Thursday",
-                "24-11-2021",
-                "08:00 A.M.",
-                "10:00 A.M.",
-                "XBDS3024 Natural Language Processing",
-                "Tutorial",
-                "Mr. Phua Yeong Tsann"));
+    public String getCapacity() {
+        return capacity;
     }
 
-    public ArrayList<Lesson> getLessonList() {
-        return lessonList;
+    public void setCapacity(String seats) {
+        this.capacity = seats;
+    }
+
+    public ArrayList<String> getSeatNo() {
+        return seatNo;
+    }
+
+    public void setSeatNo(ArrayList<String> seatNo) {
+        this.seatNo = seatNo;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }
+

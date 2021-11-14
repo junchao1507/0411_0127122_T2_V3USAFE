@@ -82,19 +82,23 @@
     <string name="btn_vaccinationStatus_submit">Submit</string>
     <string name="btn_vaccinationStatus_next">Next</string>
 
-    <!--Booking Page Strings-->
-    <string name="prompt_select_date">Select a Date</string>
-    <string name="prompt_select_time">Select a Time</string>
-    <string name="prompt_select_lecture_theatre">Select a Lecture Theatre</string>
-    <string name="title_information">Information:</string>
-    <string name="prompt_select_seat">Select an available seat.</string>
-    <string name="btn_next">Next</string>
-    <string name="btn_book">Book</string>
+    <!--Booking Pages Strings-->
+    <string name="seat_booking">Seat Booking</string>
+    <string name="module_name">Module Name</string>
+    <string name="lesson_id">Lesson ID:</string>
+    <string name="date">Date:</string>
+    <string name="time">Time:</string>
+    <string name="seats">Seats Available:</string>
+    <string name="location">Location:</string>
+    <string name="select_seat">Select a Seat:</string>
+    <string name="lesson_details">Lesson Details</string>
+    <string name="back">Back</string>
 
     <!--Quiz Cover Page Strings-->
     <string name="quiz_logo">Quiz Logo</string>
     <string name="btn_take_quiz">Take Quiz!</string>
     <string name="btn_skip">Skip</string>
+    <string name="btn_next">Next</string>
 
     <!--Quiz Page Strings-->
     <string name="txt_15sec">15sec</string>

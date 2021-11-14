@@ -77,7 +77,7 @@ public class SignUpActivity extends AppCompatActivity {
                     edtPassword.setError("Password Required!");
                     edtPassword.requestFocus();
                 } else {
-                    user = new User(studId, email, studId, password, "UNKNOWN", "UNKNOWN");
+                    user = new User(studId, email, studId, password, "UNKNOWN", "UNKNOWN", "");
 
                     userRef.child(studId).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override

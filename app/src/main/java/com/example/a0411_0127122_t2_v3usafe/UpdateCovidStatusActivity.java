@@ -21,7 +21,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 
 public class UpdateCovidStatusActivity extends AppCompatActivity {
     private DatabaseReference ref;
@@ -112,8 +115,11 @@ public class UpdateCovidStatusActivity extends AppCompatActivity {
     public void updateCovidRisk(String covidRisk){
         Intent getUserIntent = getIntent();
         User user = (User)getUserIntent.getSerializableExtra("userObject");
+        Date now = new Date();
+        SimpleDateFormat dateTimeFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm aa", Locale.getDefault());
         HashMap UpdateUser = new HashMap();
         UpdateUser.put("covidRisk", covidRisk);
+        UpdateUser.put("covidRiskUpdateTime", dateTimeFormat.format(now));
 
 
         ref = FirebaseDatabase.getInstance("https://usafe---0127122-a31c2-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("User");

@@ -5,10 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.format.DateUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -16,6 +19,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Locale;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -66,7 +75,37 @@ public class LoginActivity extends AppCompatActivity {
                         String userName =  snapshot.child(enteredId).child("userName").getValue(String.class);
                         String vacStatus = snapshot.child(enteredId).child("vacStatus").getValue(String.class);
                         String covidStatus = snapshot.child(enteredId).child("covidRisk").getValue(String.class);
-                        User user = new User(userId, email, userName, actualPassword, vacStatus, covidStatus);
+                        String covidRiskUpdateTime = snapshot.child(enteredId).child("covidRiskUpdateTime").getValue(String.class);
+                        User user = new User(userId, email, userName, actualPassword, vacStatus, covidStatus, covidRiskUpdateTime);
+
+                        SimpleDateFormat dateTimeFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm aa", Locale.getDefault());
+                        Date updatedTimestamp = new Date();
+
+                        try {
+                            updatedTimestamp = dateTimeFormat.parse(covidRiskUpdateTime);
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+
+                        if(!DateUtils.isToday(updatedTimestamp.getTime())){
+                            HashMap UpdateUser = new HashMap();
+                            String covidRisk = "UNKNOWN";
+                            UpdateUser.put("covidRisk", covidRisk);
+                            UpdateUser.put("covidRiskUpdateTime", "");
+
+
+
+                            userRef.child(user.getUserId()).updateChildren(UpdateUser).addOnCompleteListener(new OnCompleteListener() {
+                                @Override
+                                public void onComplete(@NonNull Task task) {
+                                    if(task.isSuccessful()){
+                                        user.setCovidRisk(covidRisk);
+                                    }else{
+                                        Toast.makeText(LoginActivity.this, "Update Failed.", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                        }
 
                         Intent intent  = new Intent(LoginActivity.this, MainActivity.class);
                         intent.putExtra("userObject", user);
