@@ -16,27 +16,27 @@ public class Lesson {
     private String moduleName;
     private String mode;
     private String lecturer;
-    private boolean active;
+    private String active;
 
-    public Lesson(){
-
-    }
-
-//    public Lesson(int lessonId, String week, String location, String capacity, ArrayList<String> seatNo, String day, String date, String startTime, String endTime, String moduleName, String mode, String lecturer, boolean active) {
-//        this.lessonId = lessonId;
-//        this.week = week;
-//        this.location = location;
-//        this.capacity = capacity;
-//        this.seatNo = seatNo;
-//        this.day = day;
-//        this.date = date;
-//        this.startTime = startTime;
-//        this.endTime = endTime;
-//        this.moduleName = moduleName;
-//        this.mode = mode;
-//        this.lecturer = lecturer;
-//        this.active = active;
+//    public Lesson(){
+//
 //    }
+
+    public Lesson(int lessonId, String week, String location, String capacity, ArrayList<String> seatNo, String day, String date, String startTime, String endTime, String moduleName, String mode, String lecturer, String active) {
+        this.lessonId = lessonId;
+        this.week = week;
+        this.location = location;
+        this.capacity = capacity;
+        this.seatNo = seatNo;
+        this.day = day;
+        this.date = date;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.moduleName = moduleName;
+        this.mode = mode;
+        this.lecturer = lecturer;
+        this.active = active;
+    }
 
     public int getLessonId() {
         return lessonId;
@@ -134,11 +134,11 @@ public class Lesson {
         this.seatNo = seatNo;
     }
 
-    public boolean isActive() {
+    public String isActive() {
         return active;
     }
 
-    public void setActive(boolean active) {
+    public void setActive(String active) {
         this.active = active;
     }
 }

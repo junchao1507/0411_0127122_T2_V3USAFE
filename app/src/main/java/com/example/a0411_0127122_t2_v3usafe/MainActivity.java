@@ -2,7 +2,6 @@ package com.example.a0411_0127122_t2_v3usafe;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -14,7 +13,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.ImageView;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
@@ -32,17 +30,37 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-import java.util.TimeZone;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity {
-    private DatabaseReference lessonRef, userRef;
+    private DatabaseReference lessonRef, seatRef, userRef;
     private StorageReference imgRef;
-    private Lesson lesson;
     private GridView gridMenu, gridLessons;
     private CircleImageView profilePic;
-    private ArrayList<BookingItem> bookingList = new ArrayList<>();
+    private ArrayList<Lesson> tempLessonList = new ArrayList<>();
+    private ArrayList<BookedLesson> bookedLessonsList = new ArrayList<>();
+
+
+    // Set time zone and format date and time
+    private static final SimpleDateFormat dateTimeFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm aa", Locale.getDefault());
+    //Variables
+    private String active = "true";
+    private int lessonId = 0;
+    private String lessonDate = "";
+    private String startTime = "";
+    private String endTime = "";
+    private String startDateTime = "";
+    private String week = "";
+    private String location = "";
+    private String capacity = "";
+    private String day = "";
+    private String date = "";
+    private String moduleName = "";
+    private String mode = "";
+    private String lecturer = "";
+    private Date now = new Date();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         setContentView(R.layout.activity_main);
         Intent getUserIntent = getIntent();
-        User user = (User)getUserIntent.getSerializableExtra("userObject");
+        User user = (User) getUserIntent.getSerializableExtra("userObject");
 
         //Load saved image from firebase firestore database.
         imgRef = FirebaseStorage.getInstance().getReference();
@@ -74,7 +92,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
         List<MainMenuItem> itemList = new ArrayList<>();
         itemList.add(new MainMenuItem(R.drawable.screening, "Covid Risk Status"));
         itemList.add(new MainMenuItem(R.drawable.booking, "Book a Seat"));
@@ -83,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         itemList.add(new MainMenuItem(R.drawable.report, "Report"));
         itemList.add(new MainMenuItem(R.drawable.history, "History"));
 
-        gridMenu= findViewById(R.id.gv_menu);
+        gridMenu = findViewById(R.id.gv_menu);
         MainMenuAdapter menuAdapter = new MainMenuAdapter(this, R.layout.main_menu_item, itemList);
         gridMenu.setAdapter(menuAdapter);
         gridMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -92,10 +109,9 @@ public class MainActivity extends AppCompatActivity {
                 Context context = MainActivity.this;
                 Intent intent;
 
-                switch(position)
-                {
+                switch (position) {
                     case 0:
-                        intent =  new Intent(context, UpdateCovidStatusActivity.class);
+                        intent = new Intent(context, UpdateCovidStatusActivity.class);
                         intent.putExtra("userObject", user);
                         startActivity(intent);
                         break;
@@ -109,18 +125,18 @@ public class MainActivity extends AppCompatActivity {
                                 String vacStatus = snapshot.child(user.getUserId()).child("vacStatus").getValue().toString();
 
                                 // Check user's covid risk and vaccination status
-                                if(covidRisk.equals("LOW RISK") && vacStatus.equals("COMPLETED")) {
+                                if (covidRisk.equals("LOW RISK") && vacStatus.equals("COMPLETED")) {
                                     Intent intent = new Intent(context, BookingActivity.class);
                                     intent.putExtra("userObject", user);
                                     startActivity(intent);
-                                }else{
+                                } else {
                                     new AlertDialog.Builder(MainActivity.this)
                                             .setTitle("ACCESS DENIED")
                                             .setMessage("You do not have access to this page unless you are a low risk individual and have completed TWO(2) doses of vaccination. Update your Info Now!")
                                             .setPositiveButton("Update", new DialogInterface.OnClickListener() {
                                                 @Override
                                                 public void onClick(DialogInterface dialog, int which) {
-                                                    Intent intent =  new Intent(context, ProfileActivity.class);
+                                                    Intent intent = new Intent(context, ProfileActivity.class);
                                                     intent.putExtra("userObject", user);
                                                     startActivity(intent);
                                                 }
@@ -136,25 +152,25 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case 2:
-                        intent =  new Intent(context, RevisionActivity.class);
+                        intent = new Intent(context, RevisionActivity.class);
                         intent.putExtra("userObject", user);
                         startActivity(intent);
                         break;
 
                     case 3:
-                        intent =  new Intent(context, QuizCoverActivity.class);
+                        intent = new Intent(context, QuizCoverActivity.class);
                         intent.putExtra("userObject", user);
                         startActivity(intent);
                         break;
 
                     case 4:
-                        intent =  new Intent(context, ReportActivity.class);
+                        intent = new Intent(context, ReportActivity.class);
                         intent.putExtra("userObject", user);
                         startActivity(intent);
                         break;
 
                     case 5:
-                        intent =  new Intent(context, HistoryActivity.class);
+                        intent = new Intent(context, HistoryActivity.class);
                         intent.putExtra("userObject", user);
                         startActivity(intent);
                         break;
@@ -166,113 +182,135 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
-
         // Retrieving data from firebase real-time db.
         lessonRef = FirebaseDatabase.getInstance("https://usafe---0127122-a31c2-default-rtdb.asia-southeast1.firebasedatabase.app").getReference().child("Lesson");
-        lessonRef.addValueEventListener(new ValueEventListener() {
+        lessonRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                // Set time zone and format date and time
-                SimpleDateFormat dateTimeFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm aa", Locale.getDefault());
-                //Variables
-                boolean display = true;
-                boolean active = true;
-                String lessonDate = "";
-                String startTime = "";
-                String startDateTime = "";
-                Date now = new Date();
-                if(snapshot.exists()) {
+
+                if (snapshot.exists()) {
                     // Lesson Node
                     for (DataSnapshot snapshot1 : snapshot.getChildren()) {
-                        String child1 = snapshot1.getKey();
-                        Log.d("ADebugTag", "child1: " + child1);
                         // lessonId Node
-                        int i = 0;
-                        for(DataSnapshot snapshot2 : snapshot1.getChildren()){
+                        ArrayList<String> seatList = new ArrayList<>();
+
+                        for (DataSnapshot snapshot2 : snapshot1.getChildren()) {
                             //Get the current child node
-                            String child = snapshot2.getKey();
+                            String child2 = snapshot2.getKey();
 
-                            //Check if the lesson is still active
-                            if(child.equals("active")){
-                                active = snapshot2.getValue(Boolean.class);
-                                //Log.d("ADebugTag", "active: " + active);
+                            if(child2.equals("lessonId")){
+                                lessonId = snapshot2.getValue(Integer.class);
                             }
-
-                            //Get the date of the lesson
-                            if(child.equals("date")){
-                                lessonDate = snapshot2.getValue(String.class);
-                                //Log.d("ADebugTag", "lessonDate: " + lessonDate);
+                            else if(child2.equals("week")){
+                                week = snapshot2.getValue(String.class);
                             }
-
-                            // Get the starting time of the lesson
-                            if(child.equals("startTime")){
+                            else if(child2.equals("location")){
+                                location = snapshot2.getValue(String.class);
+                            }
+                            else if(child2.equals("capacity")){
+                                capacity = snapshot2.getValue(String.class);
+                            }
+                            else if(child2.equals("seatNo")){
+                                seatList.clear();
+                                for(DataSnapshot snapshot3 : snapshot2.getChildren()) {
+                                    String child3 = snapshot3.getKey();
+                                    String seat = snapshot3.getValue(String.class);
+                                    seatList.add(seat);
+                                }
+                            }else if(child2.equals("day")){
+                                day = snapshot2.getValue(String.class);
+                            }
+                            else if(child2.equals("date")){
+                                date = snapshot2.getValue(String.class);
+                            }
+                            else if(child2.equals("startTime")){
                                 startTime = snapshot2.getValue(String.class);
-                                //Log.d("ADebugTag", "startTime: " + startTime);
-                                startDateTime = lessonDate + " " + startTime;
-                                Date startDT = new Date();
-                                try {
-                                    startDT = dateTimeFormat.parse(startDateTime);
-                                } catch (ParseException e) {
-                                    e.printStackTrace();
-                                }
-
-                                // Check if the startDateTime has passed the current timestamp
-                                Log.d("ADebugTag", "startDateTime: " + startDT);
-                                Log.d("ADebugTag", "Now: " + now);
-                                if (now.after(startDT)) {
-                                    active = false;
-                                    display = false;
-                                }
-
-                                Log.d("ADebugTag", "active: " + active);
-                                // If the status is active
-                                if(active) {
-                                    // seatNo Node
-                                    for (DataSnapshot snapshot3 : snapshot2.getChildren()) {
-                                        //After booking, seat = userId
-                                        // If userId hasn't booked the seat
-                                        // Then dont display the lesson on the list.
-                                        String seat = snapshot3.getValue(String.class);
-                                        if (!seat.equals(user.getUserId())) {
-                                            display = false;
-                                        }
-                                    }
-
-                                    if(display) {
-                                        lesson = snapshot1.getValue(Lesson.class);
-                                        bookingList.add(new BookingItem(Integer.toString(lesson.getLessonId()), lesson.getModuleName(), lesson.getDay() + ", " + lesson.getDate(), lesson.getStartTime(), lesson.getLocation(), lesson.getCapacity(), lesson.getSeatNo()));
-                                    }
-                                }
-                                else{
-                                    // Update active status
-                                    Lesson less = snapshot1.getValue(Lesson.class);
-                                    lessonRef.child(Integer.toString(less.getLessonId())).child("active").setValue(false);
-                                }
                             }
-
-                            Log.d("ADebugTag", "i: " + i);
-                            i++;
-                            // Reset te value back to true
-                            display = true;
-                            active = true;
+                            else if(child2.equals("endTime")){
+                                endTime = snapshot2.getValue(String.class);
+                            }
+                            else if(child2.equals("moduleName")){
+                                moduleName = snapshot2.getValue(String.class);
+                            }
+                            else if(child2.equals("mode")){
+                                mode = snapshot2.getValue(String.class);
+                            }
+                            else if(child2.equals("lecturer")){
+                                lecturer = snapshot2.getValue(String.class);
+                            }
+                            else if(child2.equals("active")){
+                                active = snapshot2.getValue(String.class);
+                            }
                         }
+
+                        // Add into the tempLessonList
+                        tempLessonList.add(new Lesson(lessonId, week, location,  capacity, seatList,  day,  date,  startTime,  endTime,  moduleName,  mode,  lecturer,  active));
                     }
 
 
-                    gridLessons= findViewById(R.id.gv_booked_lessons);
-                    BookingAdapter bookingAdapter = new BookingAdapter(MainActivity.this, R.layout.booking_item, bookingList);
-                    gridLessons.setAdapter(bookingAdapter);
+                    for (Lesson lesson : tempLessonList) {
+                        lessonDate = lesson.getDate();
+                        startTime = lesson.getStartTime();
+                        ArrayList<String> seatList = lesson.getSeatNo();
+                        startDateTime = lessonDate + " " + startTime;
+                        Date startDT = new Date();
 
+                        // Formatting the date and time of the lesson
+                        try {
+                            startDT = dateTimeFormat.parse(startDateTime);
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+
+                        // To check if the lesson is still active
+                        if (startDT.after(now)) {
+                            // To display the seat number selected by the user
+                            int countSeat = 0;
+                            // Loop through the seatList to check if the user has booked any seat.
+                            for (String seat : seatList) {
+                                // If yes, then add the lesson into the bookedLessonList to display on the main page.
+                                if (seat.equals(user.getUserId())) {
+                                    bookedLessonsList.add(new BookedLesson(lesson.getLessonId(), lesson.getModuleName(), lesson.getDay() + ", " + lesson.getDate(), lesson.getStartTime(), lesson.getEndTime(), lesson.getLocation(), Integer.toString(countSeat)));
+                                    break;
+                                }
+                                countSeat++;
+                            }
+                        }
+                        else{
+                            // Update active status -> false
+                            lessonRef.child(Integer.toString(lesson.getLessonId())).child("active").setValue("false");
+                            Log.d("ADebugTag", "active(after): " + false);
+                        }
+
+                    }
+
+
+                    gridLessons = findViewById(R.id.gv_booked_lessons);
+                    BookedSeatAdapter bookedSeatAdapter = new BookedSeatAdapter(MainActivity.this, R.layout.booked_seat, bookedLessonsList);
+                    gridLessons.setAdapter(bookedSeatAdapter);
+                    gridLessons.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            Intent intent = new Intent(getApplicationContext(), BookingDetailsActivity.class);
+                            intent.putExtra("lessonId", bookedLessonsList.get(position).getLessonId());
+                            intent.putExtra("moduleName", bookedLessonsList.get(position).getModuleName());
+                            intent.putExtra("dayDate", bookedLessonsList.get(position).getDayDate());
+                            intent.putExtra("startTime", bookedLessonsList.get(position).getStartTime());
+                            intent.putExtra("endTime", bookedLessonsList.get(position).getEndTime());
+                            intent.putExtra("location", bookedLessonsList.get(position).getLocation());
+                            intent.putExtra("seat", bookedLessonsList.get(position).getSeat());
+                            intent.putExtra("userObject", user);
+                            startActivity(intent);
+                        }
+                    });
                 }
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+            public void onCancelled (@NonNull DatabaseError error){
 
             }
+
         });
-
-
     }
 }

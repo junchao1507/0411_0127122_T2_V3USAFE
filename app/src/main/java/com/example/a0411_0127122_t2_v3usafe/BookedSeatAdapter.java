@@ -4,26 +4,24 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.a0411_0127122_t2_v3usafe.BookedLesson;
+import com.example.a0411_0127122_t2_v3usafe.R;
 import com.reginald.editspinner.EditSpinner;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class BookingAdapter extends ArrayAdapter<Lesson>{
-    List<Lesson> items_list = new ArrayList<>();
+public class BookedSeatAdapter extends ArrayAdapter<BookedLesson> {
+    List<BookedLesson> items_list = new ArrayList<>();
     int menu_layout_id;
 
-    public BookingAdapter(@NonNull Context context, int resource, @NonNull List<Lesson> objects) {
+    public BookedSeatAdapter(@NonNull Context context, int resource, @NonNull List<BookedLesson> objects) {
         super(context, resource, objects);
         items_list = objects;
         menu_layout_id = resource;
@@ -35,7 +33,7 @@ public class BookingAdapter extends ArrayAdapter<Lesson>{
     }
 
     @Override
-    public Lesson getItem(int position) {
+    public BookedLesson getItem(int position) {
         return items_list.get(position);
     }
 
@@ -67,13 +65,13 @@ public class BookingAdapter extends ArrayAdapter<Lesson>{
         EditSpinner spnSeatNo = v.findViewById(R.id.spn_select_seat);
 
         // get the item using the  position param
-        Lesson lesson = items_list.get(position);
+        BookedLesson bookedLesson = items_list.get(position);
 
-        tvModuleName.setText(lesson.getModuleName());
-        tvDayDate.setText(lesson.getDay() + ", " + lesson.getDate());
-        tvTime.setText(lesson.getStartTime() + " - " + lesson.getEndTime());
-        tvLocation.setText(lesson.getLocation());
-        tvSeats.setText(lesson.getCapacity());
+        tvModuleName.setText(bookedLesson.getModuleName());
+        tvDayDate.setText(bookedLesson.getDayDate());
+        tvTime.setText(bookedLesson.getStartTime() + " - " + bookedLesson.getEndTime());
+        tvLocation.setText(bookedLesson.getLocation());
+        tvSeats.setText(bookedLesson.getSeat());
 //        spnSeatNo.setText(bookingItem.getSeatNo())
 
 //        ArrayAdapter<String> listSeats;

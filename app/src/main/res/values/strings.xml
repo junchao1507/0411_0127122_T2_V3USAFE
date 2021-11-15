@@ -92,6 +92,7 @@
     <string name="location">Location:</string>
     <string name="select_seat">Select a Seat:</string>
     <string name="lesson_details">Lesson Details</string>
+    <string name="booked_seat">Booked Seat:</string>
     <string name="back">Back</string>
 
     <!--Quiz Cover Page Strings-->

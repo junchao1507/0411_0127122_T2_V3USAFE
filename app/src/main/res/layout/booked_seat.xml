@@ -133,7 +133,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="20dp"
-                android:text="@string/seats"
+                android:text="@string/booked_seat"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textStyle="bold"
@@ -146,7 +146,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="20dp"
-                android:text="@string/seats"
+                android:text="@string/booked_seat"
                 android:textColor="@color/black"
                 android:textStyle="normal"
                 android:textSize="15sp" />
