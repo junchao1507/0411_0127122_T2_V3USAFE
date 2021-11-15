@@ -168,14 +168,6 @@ public class BookingActivity extends AppCompatActivity {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                             Intent intent = new Intent(getApplicationContext(), BookingDetailsActivity.class);
-//                            intent.putExtra("lessonId", bookingList.get(position).getLessonId());
-//                            intent.putExtra("moduleName", bookingList.get(position).getModuleName());
-//                            intent.putExtra("dayDate", bookingList.get(position).getDayDate());
-//                            intent.putExtra("time", bookingList.get(position).getTime());
-//                            intent.putExtra("location", bookingList.get(position).getLocation());
-//                            intent.putExtra("seatsAvailable", bookingList.get(position).getSeats());
-//                            intent.putExtra("selectSeat", bookingList.get(position).getSeatNo());
-
                             intent.putExtra("lessonId", lessonList.get(position).getLessonId());
                             intent.putExtra("week", lessonList.get(position).getWeek());
                             intent.putExtra("location", lessonList.get(position).getLocation());

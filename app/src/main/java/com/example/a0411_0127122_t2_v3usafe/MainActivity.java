@@ -265,7 +265,7 @@ public class MainActivity extends AppCompatActivity {
                         // To check if the lesson is still active
                         if (startDT.after(now)) {
                             // To display the seat number selected by the user
-                            int countSeat = 0;
+                            int countSeat = 1;
                             // Loop through the seatList to check if the user has booked any seat.
                             for (String seat : seatList) {
                                 // If yes, then add the lesson into the bookedLessonList to display on the main page.

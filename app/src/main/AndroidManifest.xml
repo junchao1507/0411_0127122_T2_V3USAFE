@@ -17,9 +17,7 @@
             android:exported="true" />
         <activity
             android:name=".HistoryActivity"
-            android:exported="true"
-            android:label="@string/title_activity_history"
-            android:theme="@style/Theme.0411_0127122_T2_V3USAFE.NoActionBar" />
+            android:exported="true" />
         <activity
             android:name=".ReportActivity"
             android:exported="true" />
