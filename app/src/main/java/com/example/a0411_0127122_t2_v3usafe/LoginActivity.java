@@ -67,6 +67,7 @@ public class LoginActivity extends AppCompatActivity {
                     // Get the actual password from the database
                     String actualPassword = snapshot.child(enteredId).child("password").getValue(String.class);
 
+
                     //If the entered password == actual password
                     if(actualPassword.equals(enteredPassword)){
                         Toast.makeText(LoginActivity.this, "Login Successful!", Toast.LENGTH_SHORT).show();
@@ -80,6 +81,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         SimpleDateFormat dateTimeFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm aa", Locale.getDefault());
                         Date updatedTimestamp = new Date();
+
 
                         try {
                             updatedTimestamp = dateTimeFormat.parse(covidRiskUpdateTime);

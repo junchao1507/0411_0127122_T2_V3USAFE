@@ -101,6 +101,10 @@
     <string name="btn_skip">Skip</string>
     <string name="btn_next">Next</string>
 
+    <!--Revision Page Strings-->
+    <string name ="title_activity_revision">Revision Page</string>
+    <string name="txt_answer">Answer: </string>
+
     <!--Quiz Page Strings-->
     <string name="txt_15sec">15sec</string>
     <string name="txt_question">Question</string>
