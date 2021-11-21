@@ -29,7 +29,7 @@ public class BookingActivity extends AppCompatActivity {
     private ArrayList<BookedLesson> bookingList = new ArrayList<>();
     private ArrayList<Lesson> lessonList = new ArrayList<>();
     private ArrayList<Lesson> tempLessonList = new ArrayList<>();
-    private TextView tvModName, tvDayDate, tvTime, tvLoc, tvSeats;
+    private TextView tvModName, tvDayDate, tvTime, tvLoc, tvSeats, noClass;
 
     // Set time zone and format date and time
     private static final SimpleDateFormat dateTimeFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm aa", Locale.getDefault());
@@ -185,6 +185,8 @@ public class BookingActivity extends AppCompatActivity {
                             startActivity(intent);
                         }
                     });
+                } else {
+
                 }
             }
 
