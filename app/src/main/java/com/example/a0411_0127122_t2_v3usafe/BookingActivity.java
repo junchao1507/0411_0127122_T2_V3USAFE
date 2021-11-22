@@ -37,7 +37,7 @@ public class BookingActivity extends AppCompatActivity {
     private static final SimpleDateFormat dateTimeFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm aa", Locale.getDefault());
     //Variables
     private String active = "true";
-    private int lessonId = 0;
+    private String lessonId = "0";
     private String lessonDate = "";
     private String startTime = "";
     private String endTime = "";
@@ -86,7 +86,7 @@ public class BookingActivity extends AppCompatActivity {
                             String child2 = snapshot2.getKey();
 
                             if(child2.equals("lessonId")){
-                                lessonId = snapshot2.getValue(Integer.class);
+                                lessonId = snapshot2.getValue(String.class);
                             }
                             else if(child2.equals("week")){
                                 week = snapshot2.getValue(String.class);
@@ -166,7 +166,7 @@ public class BookingActivity extends AppCompatActivity {
                         }
                         else{
                             // Update active status -> false
-                            lessonRef.child(Integer.toString(lesson.getLessonId())).child("active").setValue("false");
+                            lessonRef.child(lesson.getLessonId()).child("active").setValue("false");
                             Log.d("ADebugTag", "active(after): " + false);
                         }
 
@@ -180,18 +180,12 @@ public class BookingActivity extends AppCompatActivity {
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                             Intent intent = new Intent(getApplicationContext(), BookingDetailsActivity.class);
                             intent.putExtra("lessonId", lessonList.get(position).getLessonId());
-                            intent.putExtra("week", lessonList.get(position).getWeek());
                             intent.putExtra("location", lessonList.get(position).getLocation());
                             intent.putExtra("capacity", lessonList.get(position).getCapacity());
                             intent.putExtra("seatNo", lessonList.get(position).getSeatNo());
-                            intent.putExtra("day", lessonList.get(position).getDay());
-                            intent.putExtra("date", lessonList.get(position).getDate());
-                            intent.putExtra("startTime", lessonList.get(position).getStartTime());
-                            intent.putExtra("endTime", lessonList.get(position).getEndTime());
+                            intent.putExtra("dayDate", lessonList.get(position).getDay() + ", " + lessonList.get(position).getDate());
+                            intent.putExtra("time", lessonList.get(position).getStartTime() + " - " + lessonList.get(position).getEndTime());
                             intent.putExtra("moduleName", lessonList.get(position).getModuleName());
-                            intent.putExtra("mode", lessonList.get(position).getMode());
-                            intent.putExtra("lecturer", lessonList.get(position).getLecturer());
-                            intent.putExtra("active", lessonList.get(position).isActive());
                             intent.putExtra("userObject", user);
                             startActivity(intent);
                         }

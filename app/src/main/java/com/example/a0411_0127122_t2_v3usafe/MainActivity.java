@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private static final SimpleDateFormat dateTimeFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm aa", Locale.getDefault());
     //Variables
     private String active = "true";
-    private int lessonId = 0;
+    private String lessonId = "0";
     private String lessonDate = "";
     private String startTime = "";
     private String endTime = "";
@@ -199,7 +199,7 @@ public class MainActivity extends AppCompatActivity {
                             String child2 = snapshot2.getKey();
 
                             if(child2.equals("lessonId")){
-                                lessonId = snapshot2.getValue(Integer.class);
+                                lessonId = snapshot2.getValue(String.class);
                             }
                             else if(child2.equals("week")){
                                 week = snapshot2.getValue(String.class);
@@ -278,7 +278,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                         else{
                             // Update active status -> false
-                            lessonRef.child(Integer.toString(lesson.getLessonId())).child("active").setValue("false");
+                            lessonRef.child(lesson.getLessonId()).child("active").setValue("false");
                             Log.d("ADebugTag", "active(after): " + false);
                         }
 

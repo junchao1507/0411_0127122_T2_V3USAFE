@@ -38,7 +38,7 @@ public class HistoryActivity extends AppCompatActivity {
     private static final SimpleDateFormat dateTimeFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm aa", Locale.getDefault());
     //Variables
     private String active = "true";
-    private int lessonId = 0;
+    private String lessonId = "0";
     private String lessonDate = "";
     private String startTime = "";
     private String endTime = "";
@@ -86,7 +86,7 @@ public class HistoryActivity extends AppCompatActivity {
                             String child2 = snapshot2.getKey();
 
                             if(child2.equals("lessonId")){
-                                lessonId = snapshot2.getValue(Integer.class);
+                                lessonId = snapshot2.getValue(String.class);
                             }
                             else if(child2.equals("week")){
                                 week = snapshot2.getValue(String.class);
@@ -131,7 +131,7 @@ public class HistoryActivity extends AppCompatActivity {
                         }
 
                         // Add into the tempLessonList
-                        tempLessonList.add(new Lesson(lessonId, week, location,  capacity, seatList,  day,  date,  startTime,  endTime,  moduleName,  mode,  lecturer,  active));
+                        tempLessonList.add(new Lesson(lessonId, week, location, capacity, seatList, day, date, startTime, endTime, moduleName, mode,  lecturer,  active));
                     }
 
 
@@ -170,21 +170,21 @@ public class HistoryActivity extends AppCompatActivity {
                     GridView gridView = findViewById(R.id.gv_history_list);
                     BookedSeatAdapter bookedSeatAdapter = new BookedSeatAdapter(HistoryActivity.this, R.layout.booked_seat, bookedLessonsList);
                     gridView.setAdapter(bookedSeatAdapter);
-                    gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            Intent intent = new Intent(getApplicationContext(), BookingDetailsActivity.class);
-                            intent.putExtra("lessonId", bookedLessonsList.get(position).getLessonId());
-                            intent.putExtra("moduleName", bookedLessonsList.get(position).getModuleName());
-                            intent.putExtra("dayDate", bookedLessonsList.get(position).getDayDate());
-                            intent.putExtra("startTime", bookedLessonsList.get(position).getStartTime());
-                            intent.putExtra("endTime", bookedLessonsList.get(position).getEndTime());
-                            intent.putExtra("location", bookedLessonsList.get(position).getLocation());
-                            intent.putExtra("seat", bookedLessonsList.get(position).getSeat());
-                            intent.putExtra("userObject", user);
-                            startActivity(intent);
-                        }
-                    });
+//                    gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//                        @Override
+//                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                            Intent intent = new Intent(getApplicationContext(), BookingDetailsActivity.class);
+//                            intent.putExtra("lessonId", bookedLessonsList.get(position).getLessonId());
+//                            intent.putExtra("moduleName", bookedLessonsList.get(position).getModuleName());
+//                            intent.putExtra("dayDate", bookedLessonsList.get(position).getDayDate());
+//                            intent.putExtra("startTime", bookedLessonsList.get(position).getStartTime());
+//                            intent.putExtra("endTime", bookedLessonsList.get(position).getEndTime());
+//                            intent.putExtra("location", bookedLessonsList.get(position).getLocation());
+//                            intent.putExtra("seat", bookedLessonsList.get(position).getSeat());
+//                            intent.putExtra("userObject", user);
+//                            startActivity(intent);
+//                        }
+//                    });
                 }
             }
 

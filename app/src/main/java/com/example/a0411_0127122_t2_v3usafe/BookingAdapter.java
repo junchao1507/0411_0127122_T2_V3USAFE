@@ -68,10 +68,11 @@ public class BookingAdapter extends ArrayAdapter<Lesson>{
 
         // get the item using the  position param
         Lesson lesson = items_list.get(position);
-
+        String dayDate = lesson.getDay() + ", " + lesson.getDate();
+        String time = lesson.getStartTime() + " - " + lesson.getEndTime();
         tvModuleName.setText(lesson.getModuleName());
-        tvDayDate.setText(lesson.getDay() + ", " + lesson.getDate());
-        tvTime.setText(lesson.getStartTime() + " - " + lesson.getEndTime());
+        tvDayDate.setText(dayDate);
+        tvTime.setText(time);
         tvLocation.setText(lesson.getLocation());
         tvSeats.setText(lesson.getCapacity());
 

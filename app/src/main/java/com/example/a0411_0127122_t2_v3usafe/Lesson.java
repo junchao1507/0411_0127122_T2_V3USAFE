@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Lesson {
-    private int lessonId;
+    private String lessonId;
     private String week;
     private String location;
     private String capacity;
@@ -22,7 +22,7 @@ public class Lesson {
 //
 //    }
 
-    public Lesson(int lessonId, String week, String location, String capacity, ArrayList<String> seatNo, String day, String date, String startTime, String endTime, String moduleName, String mode, String lecturer, String active) {
+    public Lesson(String lessonId, String week, String location, String capacity, ArrayList<String> seatNo, String day, String date, String startTime, String endTime, String moduleName, String mode, String lecturer, String active) {
         this.lessonId = lessonId;
         this.week = week;
         this.location = location;
@@ -38,11 +38,11 @@ public class Lesson {
         this.active = active;
     }
 
-    public int getLessonId() {
+    public String getLessonId() {
         return lessonId;
     }
 
-    public void setLessonId(int lessonId) {
+    public void setLessonId(String lessonId) {
         this.lessonId = lessonId;
     }
 

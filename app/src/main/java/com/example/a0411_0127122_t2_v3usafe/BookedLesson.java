@@ -3,7 +3,7 @@ package com.example.a0411_0127122_t2_v3usafe;
 import java.util.ArrayList;
 
 public class BookedLesson {
-    private int lessonId;
+    private String lessonId;
     private String moduleName;
     private String dayDate;
     private String startTime;
@@ -11,7 +11,7 @@ public class BookedLesson {
     private String location;
     private String seat;
 
-    public BookedLesson(int lessonId, String moduleName, String dayDate, String startTime, String endTime, String location, String seat) {
+    public BookedLesson(String lessonId, String moduleName, String dayDate, String startTime, String endTime, String location, String seat) {
         this.lessonId = lessonId;
         this.moduleName = moduleName;
         this.dayDate = dayDate;
@@ -21,11 +21,11 @@ public class BookedLesson {
         this.seat = seat;
     }
 
-    public int getLessonId() {
+    public String getLessonId() {
         return lessonId;
     }
 
-    public void setLessonId(int lessonId) {
+    public void setLessonId(String lessonId) {
         this.lessonId = lessonId;
     }
 

@@ -52,13 +52,13 @@ public class BookingDetailsActivity extends AppCompatActivity implements Adapter
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_details);
 
-        // calling the action bar
-        ActionBar actionBar = getSupportActionBar();
+//        // calling the action bar
+//        ActionBar actionBar = getSupportActionBar();
 
-        // showing the back button in action bar
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setDisplayShowTitleEnabled(false);
-        actionBar.setElevation(0);
+//        // showing the back button in action bar
+//        actionBar.setDisplayHomeAsUpEnabled(true);
+//        actionBar.setDisplayShowTitleEnabled(false);
+//        actionBar.setElevation(0);
 
         tvLessonId = findViewById(R.id.tv_lesson_id_details);
         tvModuleName = findViewById(R.id.tv_module_name_details);
@@ -86,10 +86,9 @@ public class BookingDetailsActivity extends AppCompatActivity implements Adapter
         dayDate = extras.getString("dayDate");
         time = extras.getString("time");
         location = extras.getString("location");
-        seatsAvailable = 0;
-        seatList = (ArrayList<String>)getIntent().getExtras().getSerializable("selectSeat");
+        seatList = (ArrayList<String>)getIntent().getExtras().getSerializable("seatNo");
 
-
+        Log.d("ADebugTag", "seatList: " + seatList);
 
         for (int i = 0; i < seatList.size(); i++) {
             if (seatList.get(i).equals("0")){
