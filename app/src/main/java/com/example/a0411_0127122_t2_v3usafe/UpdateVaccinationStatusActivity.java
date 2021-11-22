@@ -2,6 +2,7 @@ package com.example.a0411_0127122_t2_v3usafe;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
@@ -11,6 +12,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -45,6 +47,15 @@ public class UpdateVaccinationStatusActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_vaccination_status);
+
+        // calling the action bar
+        ActionBar actionBar = getSupportActionBar();
+
+        // showing the back button in action bar
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowTitleEnabled(false);
+        actionBar.setElevation(0);
+
         Intent getUserIntent = getIntent();
         User user = (User)getUserIntent.getSerializableExtra("userObject");
 
@@ -100,6 +111,7 @@ public class UpdateVaccinationStatusActivity extends AppCompatActivity {
                 Intent intent = new Intent(UpdateVaccinationStatusActivity.this, MainActivity.class);
                 intent.putExtra("userObject", user);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -137,7 +149,7 @@ public class UpdateVaccinationStatusActivity extends AppCompatActivity {
                 fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
-                        Picasso.get().load(uri).into(btnUpload);
+                        Picasso.get().load(uri).fit().centerInside().into(btnUpload);
                         updateVaccinationStatus("COMPLETED");
                     }
                 });
@@ -168,5 +180,15 @@ public class UpdateVaccinationStatusActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

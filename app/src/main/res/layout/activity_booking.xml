@@ -37,6 +37,14 @@
         android:layout_height="2dp"
         android:background="@android:color/darker_gray"/>
 
+    <TextView
+        android:id="@+id/txtIfPageEmpty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No class to display"
+        android:layout_gravity="center_horizontal"
+        android:textSize="30sp"
+        android:visibility="invisible"/>
 
     <GridView
         android:id="@+id/gv_lesson_list"

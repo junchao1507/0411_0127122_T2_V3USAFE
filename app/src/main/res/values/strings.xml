@@ -115,5 +115,11 @@
     <string name="title_activity_history">History</string>
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
-
+    
+    <!--Report Page Strings-->
+    <string name="select_the_issue_category">1. Select the issue category</string>
+    <string name="where_did_it_took_place">2. Where did it took place?</string>
+    <string name="describe_the_issue_in_detail">3. Describe the issue in detail</string>
+    <string name="report_submit">Submit</string>
+    <string name="upload_a_photo_as_proof">4. Upload a photo as proof</string>
 </resources>
