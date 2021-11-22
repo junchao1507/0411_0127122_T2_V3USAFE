@@ -288,21 +288,6 @@ public class MainActivity extends AppCompatActivity {
                     gridLessons = findViewById(R.id.gv_booked_lessons);
                     BookedSeatAdapter bookedSeatAdapter = new BookedSeatAdapter(MainActivity.this, R.layout.booked_seat, bookedLessonsList);
                     gridLessons.setAdapter(bookedSeatAdapter);
-                    gridLessons.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            Intent intent = new Intent(getApplicationContext(), BookingDetailsActivity.class);
-                            intent.putExtra("lessonId", bookedLessonsList.get(position).getLessonId());
-                            intent.putExtra("moduleName", bookedLessonsList.get(position).getModuleName());
-                            intent.putExtra("dayDate", bookedLessonsList.get(position).getDayDate());
-                            intent.putExtra("startTime", bookedLessonsList.get(position).getStartTime());
-                            intent.putExtra("endTime", bookedLessonsList.get(position).getEndTime());
-                            intent.putExtra("location", bookedLessonsList.get(position).getLocation());
-                            intent.putExtra("seat", bookedLessonsList.get(position).getSeat());
-                            intent.putExtra("userObject", user);
-                            startActivity(intent);
-                        }
-                    });
                 }
             }
 

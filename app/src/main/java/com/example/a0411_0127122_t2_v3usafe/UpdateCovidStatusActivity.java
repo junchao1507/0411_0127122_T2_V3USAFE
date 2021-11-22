@@ -1,6 +1,7 @@
 package com.example.a0411_0127122_t2_v3usafe;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
@@ -8,6 +9,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -38,6 +40,7 @@ public class UpdateCovidStatusActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_covid_status);
+
         Intent getUserIntent = getIntent();
         User user = (User)getUserIntent.getSerializableExtra("userObject");
 
@@ -72,6 +75,7 @@ public class UpdateCovidStatusActivity extends AppCompatActivity {
                 Intent intent = new Intent(UpdateCovidStatusActivity.this, MainActivity.class);
                 intent.putExtra("userObject", user);
                 startActivity(intent);
+                finish();
             }
         });
 

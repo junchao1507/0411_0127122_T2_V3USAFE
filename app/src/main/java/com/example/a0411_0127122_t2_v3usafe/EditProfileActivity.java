@@ -2,6 +2,7 @@ package com.example.a0411_0127122_t2_v3usafe;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
@@ -12,6 +13,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -49,6 +51,15 @@ public class EditProfileActivity extends AppCompatActivity implements ChangeInfo
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
+
+        // calling the action bar
+        ActionBar actionBar = getSupportActionBar();
+
+        // showing the back button in action bar
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle("Edit Profile");
+        actionBar.setElevation(0);
+
         Intent getUserIntent = getIntent();
         User user = (User)getUserIntent.getSerializableExtra("userObject");
 
@@ -292,5 +303,15 @@ public class EditProfileActivity extends AppCompatActivity implements ChangeInfo
                 Toast.makeText(EditProfileActivity.this, "Upload Failed.", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -74,15 +74,6 @@ public class BookingAdapter extends ArrayAdapter<Lesson>{
         tvTime.setText(lesson.getStartTime() + " - " + lesson.getEndTime());
         tvLocation.setText(lesson.getLocation());
         tvSeats.setText(lesson.getCapacity());
-//        spnSeatNo.setText(bookingItem.getSeatNo())
-
-//        ArrayAdapter<String> listSeats;
-//        String seatList[] = bookingItem.getSeatNo().toArray(new String[bookingItem.getSeatNo().size()]);
-//
-//        // Week Spinner
-//        listSeats = new ArrayAdapter<String>(BookingActivity, android.R.layout.simple_spinner_item, seatList);
-//        listSeats.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        spnSeatNo.setAdapter(listSeats);
 
         return v;
     }

@@ -38,7 +38,8 @@
             android:exported="true" />
         <activity
             android:name=".UpdateCovidStatusActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Theme.Design.NoActionBar"/>
         <activity
             android:name=".ProfileActivity"
             android:exported="true" />
