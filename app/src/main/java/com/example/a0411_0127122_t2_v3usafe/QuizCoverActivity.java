@@ -10,7 +10,7 @@ import android.widget.Button;
 
 public class QuizCoverActivity extends AppCompatActivity {
 
-    private Button takeQuiz, skipQuiz;
+    private Button takeQuiz;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,28 +20,27 @@ public class QuizCoverActivity extends AppCompatActivity {
         User user = (User)getUserIntent.getSerializableExtra("userObject");
 
         takeQuiz = (Button)findViewById(R.id.btn_take_quiz);
-        skipQuiz = (Button)findViewById(R.id.btn_skip_quiz);
+//        skipQuiz = (Button)findViewById(R.id.btn_skip_quiz);
 
         takeQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Context context = QuizCoverActivity.this;
-                Intent intent = new Intent(context,QuizActivity.class);
+                Intent intent = new Intent(context,QuizLoadingActivity.class);
                 intent.putExtra("userObject", user);
                 startActivity(intent);
+                finish();
             }
         });
 
-        skipQuiz.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Context context = QuizCoverActivity.this;
-                Intent intent = new Intent(context,MainActivity.class);
-                intent.putExtra("userObject", user);
-                startActivity(intent);
-            }
-        });
+//        skipQuiz.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Context context = QuizCoverActivity.this;
+//                Intent intent = new Intent(context,MainActivity.class);
+//                intent.putExtra("userObject", user);
+//                startActivity(intent);
+//            }
+//        });
     }
-
-
 }

@@ -22,4 +22,15 @@
     <style name="Theme.0411_0127122_T2_V3USAFE.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.0411_0127122_T2_V3USAFE.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Progressbar">
+        <item name="colorSecondary">@color/teal_200</item>
+    </style>
+
+    <style name="BlurTheme" parent="android:style/Theme.Translucent">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
 </resources>

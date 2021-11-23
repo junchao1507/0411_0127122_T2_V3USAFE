@@ -39,13 +39,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 
-public class BookingDetailsActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class BookingDetailsActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private DatabaseReference rootRef, lessonRef, seatRef;
     private ArrayAdapter<String> listSeats;
-    private ArrayList<String> seatNo = new ArrayList<>();;
+    private ArrayList<String> seatNo = new ArrayList<>();
+    ;
     private TextView tvLessonId, tvModuleName, tvDayDate, tvTime, tvLocation, tvSubjectLecturer, tvSeatsAvailable;
     private EditSpinner spnSelectSeat;
-    private Button btnBook, btnBack;
+    private Button btnBook;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +70,6 @@ public class BookingDetailsActivity extends AppCompatActivity implements Adapter
         tvSubjectLecturer = findViewById(R.id.tv_lecturer);
         spnSelectSeat = findViewById(R.id.spn_select_seat);
         btnBook = findViewById(R.id.btn_book_booking_details);
-        btnBack = findViewById(R.id.btn_back_booking_details);
 
         String lessonId = "";
         String moduleName = "";
@@ -89,12 +89,12 @@ public class BookingDetailsActivity extends AppCompatActivity implements Adapter
         time = extras.getString("time");
         location = extras.getString("location");
         lecturer = extras.getString("lecturer");
-        seatList = (ArrayList<String>)getIntent().getExtras().getSerializable("seatNo");
+        seatList = (ArrayList<String>) getIntent().getExtras().getSerializable("seatNo");
 
         Log.d("ADebugTag", "seatList: " + seatList);
 
         for (int i = 0; i < seatList.size(); i++) {
-            if (seatList.get(i).equals("0")){
+            if (seatList.get(i).equals("0")) {
                 seatNo.add(Integer.toString(i + 1));
                 seatsAvailable++;
             }
@@ -124,7 +124,7 @@ public class BookingDetailsActivity extends AppCompatActivity implements Adapter
                 if (TextUtils.isEmpty(seat)) {
                     spnSelectSeat.setError(errorMsg);
                     spnSelectSeat.requestFocus();
-                } else{
+                } else {
                     rootRef = FirebaseDatabase.getInstance("https://usafe---0127122-a31c2-default-rtdb.asia-southeast1.firebasedatabase.app").getReference();
                     lessonRef = rootRef.child("Lesson").child(lessId);
                     seatRef = lessonRef.child("seatNo");
@@ -135,13 +135,13 @@ public class BookingDetailsActivity extends AppCompatActivity implements Adapter
                     seatRef.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            for(DataSnapshot snapshot1 : snapshot.getChildren()){
+                            for (DataSnapshot snapshot1 : snapshot.getChildren()) {
                                 // Get the seat index
                                 String seat = snapshot1.getKey();
                                 // If seat index == seatId
-                                if(seat.equals(seatId)){
+                                if (seat.equals(seatId)) {
                                     Intent getUserIntent = getIntent();
-                                    User user = (User)getUserIntent.getSerializableExtra("userObject");
+                                    User user = (User) getUserIntent.getSerializableExtra("userObject");
 
                                     // Update capacity
                                     seatRef.child(seatId).setValue(user.getUserId());
@@ -153,8 +153,12 @@ public class BookingDetailsActivity extends AppCompatActivity implements Adapter
                                     new AlertDialog.Builder(BookingDetailsActivity.this)
                                             .setTitle("SUCCESS!")
                                             .setMessage("Congrats! Your seat has been reserved!")
-                                            .setNegativeButton("Close", null).show();
-                                    Toast.makeText(BookingDetailsActivity.this, "Booking was Successful!",Toast.LENGTH_SHORT).show();
+                                            .setPositiveButton("Back to Main", new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialog, int which) {
+                                                    finish();
+                                                }
+                                            }).create().show();
 
                                     // Disable the booking button
                                     btnBook.setVisibility(View.INVISIBLE);
@@ -168,14 +172,6 @@ public class BookingDetailsActivity extends AppCompatActivity implements Adapter
                         }
                     });
                 }
-            }
-        });
-
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent  = new Intent(BookingDetailsActivity.this, BookingActivity.class);
-                startActivity(intent);
             }
         });
     }

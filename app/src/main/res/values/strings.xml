@@ -96,21 +96,28 @@
     <string name="booked_seat">Booked Seat:</string>
     <string name="back">Back</string>
 
+    <!--Revision Page Strings-->
+    <string name ="title_activity_revision">Revision Page</string>
+    <string name="txt_answer">Answer: </string>
+    <string name="txt_question">Question</string>
+
     <!--Quiz Cover Page Strings-->
     <string name="quiz_logo">Quiz Logo</string>
     <string name="btn_take_quiz">Take Quiz!</string>
     <string name="btn_skip">Skip</string>
     <string name="btn_next">Next</string>
 
-    <!--Revision Page Strings-->
-    <string name ="title_activity_revision">Revision Page</string>
-    <string name="txt_answer">Answer: </string>
-
     <!--Quiz Page Strings-->
-    <string name="txt_15sec">15sec</string>
-    <string name="txt_question">Question</string>
-    <string name="txt_0_5">0/5</string>
-    <string name="the_corona_in_coronavirus_means">The “corona” in coronavirus means:</string>
+    <string name="txt_quiz_title">U-SAFE Quiz</string>
+
+    <!--Quiz Time Out Page Strings-->
+    <string name="txt_time_out">Time out...</string>
+    <string name="btn_try_again">Try Again</string>
+
+    <!--Quiz Result Page Strings-->
+    <string name="txt_quiz_result">Quiz Result</string>
+    <string name="btn_close_quiz">Close</string>
+    <string name="btn_new_quiz">New Quiz</string>
 
     <!--History Page Auto-generated Strings-->
     <string name="title_activity_history">History</string>

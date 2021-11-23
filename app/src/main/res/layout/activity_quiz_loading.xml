@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#062864"
+    tools:context=".QuizLoadingActivity">
+
+ <LinearLayout
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_marginTop="30dp"
+     android:layout_marginBottom="30dp"
+     android:layout_marginLeft="25dp"
+     android:layout_marginRight="25dp"
+     android:gravity="center"
+     android:layout_centerInParent="true"
+     android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/quiz_logo"
+        android:layout_width="241dp"
+        android:layout_height="208dp"
+        android:layout_centerInParent="true"
+        android:contentDescription="@string/quiz_logo"
+        android:src="@drawable/quiz_logo" />
+
+     <TextView
+         android:id="@+id/txt_quizCoverPageHeading"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_gravity="center_horizontal"
+         android:layout_marginTop="25dp"
+         android:text="Daily Quiz Time!"
+         android:textColor="@color/white"
+         android:textSize="25sp"
+         android:textStyle="bold"/>
+
+     <TextView
+         android:id="@+id/txt_quizCoverPageBody"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_gravity="center_horizontal"
+         android:layout_marginTop="5dp"
+         android:text="Let’s expand your knowledge!"
+         android:textColor="@color/white"
+         android:textSize="18sp" />
+
+     <ProgressBar
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="20dp"
+         android:theme="@style/Progressbar"/>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

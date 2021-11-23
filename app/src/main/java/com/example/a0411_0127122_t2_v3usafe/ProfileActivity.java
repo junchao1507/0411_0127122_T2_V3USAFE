@@ -47,14 +47,6 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        // calling the action bar
-        ActionBar actionBar = getSupportActionBar();
-
-        // showing the back button in action bar
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setDisplayShowTitleEnabled(false);
-        actionBar.setElevation(0);
-
         Intent getUserIntent = getIntent();
         User user = (User)getUserIntent.getSerializableExtra("userObject");
 
@@ -158,6 +150,7 @@ public class ProfileActivity extends AppCompatActivity {
                 Intent intent = new Intent(context, UpdateCovidStatusActivity.class);
                 intent.putExtra("userObject", user);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -169,6 +162,7 @@ public class ProfileActivity extends AppCompatActivity {
                 Intent intent = new Intent(context, UpdateVaccinationStatusActivity.class);
                 intent.putExtra("userObject", user);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -180,6 +174,7 @@ public class ProfileActivity extends AppCompatActivity {
                 Intent intent = new Intent(context, MainActivity.class);
                 intent.putExtra("userObject", user);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -196,12 +191,9 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                this.finish();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
+    protected void onRestart() {
+        super.onRestart();
+        finish();
+        startActivity(getIntent());
     }
 }

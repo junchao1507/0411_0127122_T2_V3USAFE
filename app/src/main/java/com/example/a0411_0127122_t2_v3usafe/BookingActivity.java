@@ -175,6 +175,10 @@ public class BookingActivity extends AppCompatActivity {
                     GridView gridView = findViewById(R.id.gv_lesson_list);
                     BookingAdapter bookingAdapter = new BookingAdapter(BookingActivity.this, R.layout.booking_item, lessonList);
                     gridView.setAdapter(bookingAdapter);
+                    if (gridView.getAdapter().isEmpty()) {
+                        noClass = findViewById(R.id.txtIfNoClass);
+                        noClass.setVisibility(View.VISIBLE);
+                    }
                     gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -207,9 +211,18 @@ public class BookingActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
+                noClass = findViewById(R.id.txtIfNoClass);
+                noClass.setVisibility(View.INVISIBLE);
                 this.finish();
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        finish();
+        startActivity(getIntent());
     }
 }

@@ -9,9 +9,9 @@ public class Question {
     private String optionD;
     private String answer;
 
-//    public Question(String question, String optionA, String optionB, String optionC, String optionD){
-//
-//    }
+    public Question(String question, String optionA, String optionB, String optionC, String optionD){
+
+    }
 
     public Question(int questionId, String question, String optionA, String optionB, String optionC, String optionD, String answer) {
         this.questionId = questionId;

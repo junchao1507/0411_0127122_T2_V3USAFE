@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private CircleImageView profilePic;
     private ArrayList<Lesson> tempLessonList = new ArrayList<>();
     private ArrayList<BookedLesson> bookedLessonsList = new ArrayList<>();
+    private TextView noClass;
 
 
     // Set time zone and format date and time
@@ -88,6 +90,8 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(context, ProfileActivity.class);
                 intent.putExtra("userObject", user);
                 startActivity(intent);
+                noClass = findViewById(R.id.txtIfNoClass);
+                noClass.setVisibility(View.INVISIBLE);
             }
         });
 
@@ -114,6 +118,8 @@ public class MainActivity extends AppCompatActivity {
                         intent = new Intent(context, UpdateCovidStatusActivity.class);
                         intent.putExtra("userObject", user);
                         startActivity(intent);
+                        noClass = findViewById(R.id.txtIfNoClass);
+                        noClass.setVisibility(View.INVISIBLE);
                         break;
 
                     case 1:
@@ -129,6 +135,8 @@ public class MainActivity extends AppCompatActivity {
                                     Intent intent = new Intent(context, BookingActivity.class);
                                     intent.putExtra("userObject", user);
                                     startActivity(intent);
+                                    noClass = findViewById(R.id.txtIfNoClass);
+                                    noClass.setVisibility(View.INVISIBLE);
                                 } else {
                                     new AlertDialog.Builder(MainActivity.this)
                                             .setTitle("ACCESS DENIED")
@@ -139,6 +147,8 @@ public class MainActivity extends AppCompatActivity {
                                                     Intent intent = new Intent(context, ProfileActivity.class);
                                                     intent.putExtra("userObject", user);
                                                     startActivity(intent);
+                                                    noClass = findViewById(R.id.txtIfNoClass);
+                                                    noClass.setVisibility(View.INVISIBLE);
                                                 }
                                             }).setNegativeButton("Close", null).show();
                                 }
@@ -155,24 +165,32 @@ public class MainActivity extends AppCompatActivity {
                         intent = new Intent(context, RevisionActivity.class);
                         intent.putExtra("userObject", user);
                         startActivity(intent);
+                        noClass = findViewById(R.id.txtIfNoClass);
+                        noClass.setVisibility(View.INVISIBLE);
                         break;
 
                     case 3:
                         intent = new Intent(context, QuizCoverActivity.class);
                         intent.putExtra("userObject", user);
                         startActivity(intent);
+                        noClass = findViewById(R.id.txtIfNoClass);
+                        noClass.setVisibility(View.INVISIBLE);
                         break;
 
                     case 4:
                         intent = new Intent(context, ReportActivity.class);
                         intent.putExtra("userObject", user);
                         startActivity(intent);
+                        noClass = findViewById(R.id.txtIfNoClass);
+                        noClass.setVisibility(View.INVISIBLE);
                         break;
 
                     case 5:
                         intent = new Intent(context, HistoryActivity.class);
                         intent.putExtra("userObject", user);
                         startActivity(intent);
+                        noClass = findViewById(R.id.txtIfNoClass);
+                        noClass.setVisibility(View.INVISIBLE);
                         break;
 
                     default:
@@ -288,6 +306,10 @@ public class MainActivity extends AppCompatActivity {
                     gridLessons = findViewById(R.id.gv_booked_lessons);
                     BookedSeatAdapter bookedSeatAdapter = new BookedSeatAdapter(MainActivity.this, R.layout.booked_seat, bookedLessonsList);
                     gridLessons.setAdapter(bookedSeatAdapter);
+                    if (gridLessons.getAdapter().isEmpty()) {
+                        noClass = findViewById(R.id.txtIfNoClass);
+                        noClass.setVisibility(View.VISIBLE);
+                    }
                 }
             }
 
@@ -297,5 +319,12 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        finish();
+        startActivity(getIntent());
     }
 }

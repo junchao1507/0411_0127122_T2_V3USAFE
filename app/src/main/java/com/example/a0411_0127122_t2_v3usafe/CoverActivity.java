@@ -26,6 +26,7 @@ public class CoverActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(CoverActivity.this, LoginActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -34,6 +35,7 @@ public class CoverActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(CoverActivity.this, SignUpActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }

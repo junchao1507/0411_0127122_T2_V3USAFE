@@ -69,15 +69,16 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtReportDesc"
-                    android:layout_width="300dp"
-                    android:layout_height="250dp"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:background="#55000000"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -98,9 +99,9 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="15dp"
-                android:layout_marginBottom="15dp"
+                android:layout_marginBottom="80dp"
                 android:background="#838282"
                 app:cardCornerRadius="30dp"
                 app:strokeColor="#989898"

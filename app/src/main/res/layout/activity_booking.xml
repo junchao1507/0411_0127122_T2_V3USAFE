@@ -38,7 +38,7 @@
         android:background="@android:color/darker_gray"/>
 
     <TextView
-        android:id="@+id/txtIfPageEmpty"
+        android:id="@+id/txtIfNoClass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="No class to display"
@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="-30dp"
         android:horizontalSpacing="15dp"
         android:verticalSpacing="15dp"
         android:numColumns="1"

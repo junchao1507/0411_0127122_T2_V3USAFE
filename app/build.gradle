@@ -46,6 +46,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
-    implementation 'com.sasank.roundedhorizontalprogress:roundedhorizontalprogress:1.0.1'
     implementation 'com.reginald:editspinner:1.1.0'
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'com.sasank.roundedhorizontalprogress:roundedhorizontalprogress:1.0.1'
+    implementation 'com.mikhaellopez:circularprogressbar:3.0.3'
 }
