@@ -118,6 +118,7 @@ public class EditProfileActivity extends AppCompatActivity implements ChangeInfo
                 Intent intent = new Intent(EditProfileActivity.this, ProfileActivity.class);
                 intent.putExtra("userObject", user);
                 startActivity(intent);
+                finish();
             }
         });
 
