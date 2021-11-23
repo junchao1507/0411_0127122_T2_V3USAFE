@@ -43,7 +43,7 @@ public class BookingDetailsActivity extends AppCompatActivity implements Adapter
     private DatabaseReference rootRef, lessonRef, seatRef;
     private ArrayAdapter<String> listSeats;
     private ArrayList<String> seatNo = new ArrayList<>();;
-    private TextView tvLessonId, tvModuleName, tvDayDate, tvTime, tvLocation, tvSeatsAvailable;
+    private TextView tvLessonId, tvModuleName, tvDayDate, tvTime, tvLocation, tvSubjectLecturer, tvSeatsAvailable;
     private EditSpinner spnSelectSeat;
     private Button btnBook, btnBack;
 
@@ -52,13 +52,13 @@ public class BookingDetailsActivity extends AppCompatActivity implements Adapter
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_details);
 
-//        // calling the action bar
-//        ActionBar actionBar = getSupportActionBar();
+        // calling the action bar
+        ActionBar actionBar = getSupportActionBar();
 
-//        // showing the back button in action bar
-//        actionBar.setDisplayHomeAsUpEnabled(true);
-//        actionBar.setDisplayShowTitleEnabled(false);
-//        actionBar.setElevation(0);
+        // showing the back button in action bar
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowTitleEnabled(false);
+        actionBar.setElevation(0);
 
         tvLessonId = findViewById(R.id.tv_lesson_id_details);
         tvModuleName = findViewById(R.id.tv_module_name_details);
@@ -66,6 +66,7 @@ public class BookingDetailsActivity extends AppCompatActivity implements Adapter
         tvTime = findViewById(R.id.tv_time_details);
         tvLocation = findViewById(R.id.tv_location_details);
         tvSeatsAvailable = findViewById(R.id.tv_seat_details);
+        tvSubjectLecturer = findViewById(R.id.tv_lecturer);
         spnSelectSeat = findViewById(R.id.spn_select_seat);
         btnBook = findViewById(R.id.btn_book_booking_details);
         btnBack = findViewById(R.id.btn_back_booking_details);
@@ -75,6 +76,7 @@ public class BookingDetailsActivity extends AppCompatActivity implements Adapter
         String dayDate = "";
         String time = "";
         String location = "";
+        String lecturer = "";
         int seatsAvailable = 0;
         //String seatList = "";
         ArrayList<String> seatList = new ArrayList<>();
@@ -86,6 +88,7 @@ public class BookingDetailsActivity extends AppCompatActivity implements Adapter
         dayDate = extras.getString("dayDate");
         time = extras.getString("time");
         location = extras.getString("location");
+        lecturer = extras.getString("lecturer");
         seatList = (ArrayList<String>)getIntent().getExtras().getSerializable("seatNo");
 
         Log.d("ADebugTag", "seatList: " + seatList);
@@ -102,6 +105,7 @@ public class BookingDetailsActivity extends AppCompatActivity implements Adapter
         tvDayDate.setText(dayDate);
         tvTime.setText(time);
         tvLocation.setText(location);
+        tvSubjectLecturer.setText(lecturer);
         tvSeatsAvailable.setText(Integer.toString(seatsAvailable));
 
         // Week Spinner

@@ -211,6 +211,36 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/tv_lecturer_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/subject_lecturer"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="15sp" />
+
+
+        <TextView
+            android:id="@+id/tv_lecturer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="@string/subject_lecturer"
+            android:textColor="@color/black"
+            android:textStyle="normal"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal">
+
+        <TextView
             android:id="@+id/tv_select_seat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

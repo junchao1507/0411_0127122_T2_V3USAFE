@@ -186,6 +186,7 @@ public class BookingActivity extends AppCompatActivity {
                             intent.putExtra("dayDate", lessonList.get(position).getDay() + ", " + lessonList.get(position).getDate());
                             intent.putExtra("time", lessonList.get(position).getStartTime() + " - " + lessonList.get(position).getEndTime());
                             intent.putExtra("moduleName", lessonList.get(position).getModuleName());
+                            intent.putExtra("lecturer", lessonList.get(position).getLecturer());
                             intent.putExtra("userObject", user);
                             startActivity(intent);
                         }
