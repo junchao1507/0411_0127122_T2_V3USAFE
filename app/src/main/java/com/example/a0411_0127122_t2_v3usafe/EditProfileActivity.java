@@ -166,6 +166,7 @@ public class EditProfileActivity extends AppCompatActivity implements ChangeInfo
                                 deleteProfile();
                                 Intent intent = new Intent(EditProfileActivity.this, CoverActivity.class);
                                 startActivity(intent);
+                                finish();
                             }
                         }).setNegativeButton("No", null).show();
             }
