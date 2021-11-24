@@ -96,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        // Menu list
         List<MainMenuItem> itemList = new ArrayList<>();
         itemList.add(new MainMenuItem(R.drawable.screening, "Covid Risk Status"));
         itemList.add(new MainMenuItem(R.drawable.booking, "Book a Seat"));
@@ -104,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
         itemList.add(new MainMenuItem(R.drawable.report, "Report"));
         itemList.add(new MainMenuItem(R.drawable.history, "History"));
 
+        // Display menu on gridview
         gridMenu = findViewById(R.id.gv_menu);
         MainMenuAdapter menuAdapter = new MainMenuAdapter(this, R.layout.main_menu_item, itemList);
         gridMenu.setAdapter(menuAdapter);
@@ -113,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
                 Context context = MainActivity.this;
                 Intent intent;
 
+                // Find index of the menu
                 switch (position) {
                     case 0:
                         intent = new Intent(context, UpdateCovidStatusActivity.class);
@@ -130,14 +133,16 @@ public class MainActivity extends AppCompatActivity {
                                 String covidRisk = snapshot.child(user.getUserId()).child("covidRisk").getValue().toString();
                                 String vacStatus = snapshot.child(user.getUserId()).child("vacStatus").getValue().toString();
 
-                                // Check user's covid risk and vaccination status
+                                // Check user's covid risk and vaccination status.
                                 if (covidRisk.equals("LOW RISK") && vacStatus.equals("COMPLETED")) {
                                     Intent intent = new Intent(context, BookingActivity.class);
                                     intent.putExtra("userObject", user);
                                     startActivity(intent);
                                     noClass = findViewById(R.id.txtIfNoClass);
                                     noClass.setVisibility(View.INVISIBLE);
-                                } else {
+                                }
+                                // If conditions not satisfied, display alert dialogue
+                                else {
                                     new AlertDialog.Builder(MainActivity.this)
                                             .setTitle("ACCESS DENIED")
                                             .setMessage("You do not have access to this page unless you are a low risk individual and have completed TWO(2) doses of vaccination. Update your Info Now!")
@@ -149,6 +154,7 @@ public class MainActivity extends AppCompatActivity {
                                                     startActivity(intent);
                                                     noClass = findViewById(R.id.txtIfNoClass);
                                                     noClass.setVisibility(View.INVISIBLE);
+                                                    finish();
                                                 }
                                             }).setNegativeButton("Close", null).show();
                                 }

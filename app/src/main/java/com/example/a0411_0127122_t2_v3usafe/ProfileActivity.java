@@ -92,7 +92,7 @@ public class ProfileActivity extends AppCompatActivity {
                     updateCovidStatus.setText("You're safe!");
                     updateCovidStatus.setTextSize(16);
                     updateCovidStatus.setTextColor(Color.parseColor("#008000"));
-                    updateCovidStatus.setBackgroundColor(Color.parseColor("#90EE90"));
+                    updateCovidStatus.setBackgroundColor(0x90EE90);
                     updateCovidStatus.setEnabled(false);
                 }
 
@@ -109,7 +109,7 @@ public class ProfileActivity extends AppCompatActivity {
                     updateVaccineStatus.setText("Good job!");
                     updateVaccineStatus.setTextSize(16);
                     updateVaccineStatus.setTextColor(Color.parseColor("#008000"));
-                    updateVaccineStatus.setBackgroundColor(Color.parseColor("#90EE90"));
+                    updateVaccineStatus.setBackgroundColor(0x90EE90);
                     updateVaccineStatus.setEnabled(false);
                 }
             }
